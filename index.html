@@ -3,525 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Babu Trading Company - Premium Dry Fruits & Spices</title>
+    <title>Rahul Dutta Sweets & Snacks</title>
+    <!-- Tailwind CSS for Premium Design -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-stone-50/50 text-stone-800 antialiased" onload="initProducts()">
+<body class="bg-gray-50 font-sans text-gray-800">
 
-    <div class="bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 text-amber-100/90 text-center py-2 px-4 text-xs font-medium tracking-wide flex flex-wrap justify-center gap-x-6 gap-y-1 shadow-md border-b border-amber-800/30">
-        <span class="flex items-center gap-1.5"><i class="fas fa-truck text-amber-400 text-xs"></i> Fast Pan-India Delivery</span>
-        <span class="hidden sm:inline text-amber-800/60">|</span>
-        <span class="flex items-center gap-1.5"><i class="fas fa-shield-halved text-amber-400 text-xs"></i> 100% Pure & Fresh Quality</span>
-    </div>
-
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200/60 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0">
-                    <span class="text-xl sm:text-2xl font-extrabold text-amber-950 tracking-tight uppercase">
-                        Babu Trading <span class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Company</span>
-                    </span>
-                </div>
-
-                <div class="flex items-center gap-4 relative">
-                    <button onclick="openAboutUs()" class="cursor-pointer text-stone-600 hover:text-amber-950 font-bold text-sm transition px-2 py-1">
-                        About Us
-                    </button>
-                    
-                    <button onclick="openCart()" class="cursor-pointer inline-flex items-center bg-amber-950 hover:bg-amber-900 text-white font-bold px-5 py-2.5 rounded-xl text-sm shadow-md transition-all gap-2">
-                        <i class="fas fa-shopping-basket text-lg text-amber-400"></i> 
-                        <span>My Cart</span>
-                        <span id="cart-count" class="bg-amber-600 text-white text-xs font-extrabold px-2 py-0.5 rounded-full ml-1">0</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <header class="relative py-16 md:py-24 border-b border-stone-200/50 bg-cover bg-center bg-no-repeat" 
-            style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=80');">
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            
-            <div class="flex justify-center mb-5">
-                <div class="bg-white border-2 border-amber-200 text-amber-800 p-4 rounded-full shadow-md">
-                    <i class="fas fa-mortar-pestle text-4xl sm:text-5xl"></i>
-                </div>
-            </div>
-
-            <span class="inline-flex items-center gap-1.5 text-amber-800 font-bold uppercase tracking-widest text-[10px] bg-amber-100 px-3 py-1 rounded-full border border-amber-200/60 shadow-xs">
-                <i class="fas fa-star text-amber-600 text-[9px]"></i> Premium Wholesale & Retail
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-black text-amber-950 mt-3 leading-tight tracking-tight">
-                Premium Dry Fruits & Spices
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-orange-600 tracking-wide flex items-center gap-2">
+                <i class="fas fa-store"></i> Rahul Dutta Sweets
             </h1>
-            <p class="mt-3 text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed font-medium">
-                Items ko cart me jodein, QR code scan karke pay karein aur ek click me order details WhatsApp par bhejein.
-            </p>
-
-            <div class="max-w-md mx-auto mt-8 px-2">
-                <div class="relative bg-white rounded-2xl shadow-md border border-stone-200 p-1 flex items-center">
-                    <div class="pl-3 text-stone-400">
-                        <i class="fas fa-magnifying-glass"></i>
-                    </div>
-                    <input type="text" id="search-input" onkeyup="searchItems(this.value)" placeholder="Search any item (e.g. Kaju, Elaichi, Rice)..." class="w-full text-sm bg-transparent px-3 py-2.5 focus:outline-none text-stone-800 font-medium placeholder-stone-400">
-                    <button id="search-clear-btn" onclick="clearSearch()" class="hidden pr-3 text-stone-400 hover:text-stone-600 cursor-pointer">
-                        <i class="fas fa-circle-xmark"></i>
-                    </button>
-                </div>
+            <!-- Search Bar -->
+            <div class="relative w-64 hidden sm:block">
+                <input type="text" id="searchBar" onkeyup="searchProducts()" placeholder="Search sweets..." class="w-full px-4 py-1.5 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-500">
+                <i class="fas fa-search absolute right-3 top-2.5 text-gray-400 text-xs"></i>
             </div>
+            <!-- Cart Button -->
+            <button onclick="toggleCart()" class="relative bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-full font-medium transition flex items-center gap-2 cursor-pointer shadow-md">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
+                <span id="cartCount" class="bg-white text-orange-600 text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+            </button>
         </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-[50vh]">
-        <div class="border-b border-stone-200 pb-4 mb-6 flex justify-between items-end">
-            <h2 class="text-lg sm:text-xl font-extrabold text-amber-950 tracking-tight flex items-center gap-2">
-                <i class="fas fa-list text-amber-700 text-sm"></i> Product Catalogue
-            </h2>
-            <span class="text-[10px] bg-amber-950 text-amber-100 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Rate: Per 1 KG</span>
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Mobile Search Bar -->
+        <div class="relative w-full mb-6 sm:hidden">
+            <input type="text" id="searchBarMobile" onkeyup="searchProductsMobile()" placeholder="Search sweets..." class="w-full px-4 py-2.5 bg-white shadow-sm rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <i class="fas fa-search absolute right-4 top-3.5 text-gray-400"></i>
         </div>
 
-        <div id="products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+        <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <span class="w-1.5 h-6 bg-orange-500 rounded-full"></span> Best Sellers
+        </h2>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- Product 1: Kaju Mix -->
+            <div class="product-card bg-white rounded-2xl shadow-sm hover:shadow-md transition duration-300 overflow-hidden border border-gray-100 flex flex-col justify-between" data-name="kaju mix">
+                <div class="relative bg-gray-100 aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1508044594351-60a97e8bc685?w=500&auto=format&fit=crop&q=80" 
+                         alt="Kaju Mix" 
+                         class="w-full h-full object-cover transform hover:scale-105 transition duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x500/FFF3E0/E65100?text=Kaju+Mix';">
+                    <span class="absolute top-2 left-2 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">Premium</span>
+                </div>
+                <div class="p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1">Kaju Mix</h3>
+                        <p class="text-xs text-gray-500 mb-3">Rich cashew nuts and assorted premium dry fruits mix.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="text-lg font-extrabold text-gray-900">₹610</span>
+                        <button onclick="addToCart('Kaju Mix', 610)" class="bg-orange-50 text-orange-600 hover:bg-orange-600 hover:text-white font-bold p-2 px-4 rounded-xl transition text-sm cursor-pointer flex items-center gap-1">
+                            <i class="fas fa-plus text-xs"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Special Laddu -->
+            <div class="product-card bg-white rounded-2xl shadow-sm hover:shadow-md transition duration-300 overflow-hidden border border-gray-100 flex flex-col justify-between" data-name="special laddu">
+                <div class="relative bg-gray-100 aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=500&auto=format&fit=crop&q=80" 
+                         alt="Special Laddu" 
+                         class="w-full h-full object-cover transform hover:scale-105 transition duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x500/FFF3E0/E65100?text=Special+Laddu';">
+                </div>
+                <div class="p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1">Special Laddu</h3>
+                        <p class="text-xs text-gray-500 mb-3">Pure desi ghee laddu made with traditional recipe.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="text-lg font-extrabold text-gray-900">₹350</span>
+                        <button onclick="addToCart('Special Laddu', 350)" class="bg-orange-50 text-orange-600 hover:bg-orange-600 hover:text-white font-bold p-2 px-4 rounded-xl transition text-sm cursor-pointer flex items-center gap-1">
+                            <i class="fas fa-plus text-xs"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Gulab Jamun -->
+            <div class="product-card bg-white rounded-2xl shadow-sm hover:shadow-md transition duration-300 overflow-hidden border border-gray-100 flex flex-col justify-between" data-name="gulab jamun">
+                <div class="relative bg-gray-100 aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&auto=format&fit=crop&q=80" 
+                         alt="Gulab Jamun" 
+                         class="w-full h-full object-cover transform hover:scale-105 transition duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/500x500/FFF3E0/E65100?text=Gulab+Jamun';">
+                </div>
+                <div class="p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-base mb-1">Gulab Jamun</h3>
+                        <p class="text-xs text-gray-500 mb-3">Soft, melt-in-the-mouth khoya balls dipped in sugar syrup.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="text-lg font-extrabold text-gray-900">₹280</span>
+                        <button onclick="addToCart('Gulab Jamun', 280)" class="bg-orange-50 text-orange-600 hover:bg-orange-600 hover:text-white font-bold p-2 px-4 rounded-xl transition text-sm cursor-pointer flex items-center gap-1">
+                            <i class="fas fa-plus text-xs"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Slide-over Shopping Cart Panel -->
+    <div id="cartPanel" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-xs transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-xl flex flex-col justify-between">
+                <!-- Cart Header -->
+                <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50">
+                    <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fas fa-shopping-bag text-orange-600"></i> Your Order Cart
+                    </h2>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-500 p-2 cursor-pointer">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cartItemsContainer">
+                    <!-- Items will be injected here dynamically -->
+                    <p class="text-center text-gray-400 my-8 py-8">Your cart is empty. Add some delicious sweets!</p>
+                </div>
+
+                <!-- Cart Footer & Payment Info -->
+                <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-4">
+                    <div class="flex justify-between text-base font-bold text-gray-900">
+                        <span>Total Amount:</span>
+                        <span id="cartTotal">₹0</span>
+                    </div>
+
+                    <!-- Payment Instruction Note -->
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-800 space-y-1">
+                        <p class="font-bold"><i class="fas fa-info-circle"></i> Payment Details:</p>
+                        <p>A/C Name: Rahul Dutta | Bank: NSDL Bank</p>
+                        <p>Order direct WhatsApp par submit ho jayega.</p>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button onclick="sendWhatsAppOrder()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base cursor-pointer">
+                        <i class="fab fa-whatsapp text-xl"></i> Send Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="cart-overlay" onclick="closeCart()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
-
-    <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-55 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
-        <div class="p-4 border-b border-stone-200 flex justify-between items-center bg-stone-50">
-            <h2 class="text-base sm:text-lg font-extrabold text-amber-950 flex items-center gap-2">
-                <i class="fas fa-shopping-cart text-amber-600"></i> Aapka Cart
-            </h2>
-            <button onclick="closeCart()" class="w-8 h-8 flex items-center justify-center bg-stone-200 text-stone-700 rounded-full hover:bg-stone-300 cursor-pointer transition">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div class="p-4 flex-1 overflow-y-auto space-y-4">
-            <div id="cart-empty" class="py-16 text-center text-stone-400 text-sm">
-                <i class="fas fa-basket-shopping text-4xl mb-3 text-stone-300"></i>
-                <p class="font-medium">Aapka cart abhi khali hai.<br>Kripya products add karein!</p>
-            </div>
-
-            <div id="cart-items-list" class="space-y-3 hidden"></div>
-
-            <div id="cart-summary-section" class="border-t border-stone-100 pt-4 hidden space-y-4">
-                <div class="flex justify-between items-center font-bold text-stone-900 text-base">
-                    <span>Total Bill Amount:</span>
-                    <span id="cart-total-price" class="text-amber-950 text-xl">₹0</span>
-                </div>
-
-                <div class="space-y-3 bg-stone-50 p-3 rounded-xl border border-stone-200/60">
-                    <div>
-                        <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Aapka Naam / Name *</label>
-                        <input type="text" id="cust-name" placeholder="Enter your full name" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-600 bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Mobile Number / मोबाइल नंबर *</label>
-                        <input type="tel" id="cust-phone" placeholder="Enter 10-digit mobile number" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-600 bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Poora Pata / Full Address *</label>
-                        <textarea id="cust-address" rows="2" placeholder="House No, Colony, City, Pin-code" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-600 bg-white resize-none"></textarea>
-                    </div>
-                </div>
-
-                <div class="space-y-2">
-                    <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide">Choose Payment Method / पेमेंट ऑप्शन चुनें *</label>
-                    <div class="grid grid-cols-2 gap-2">
-                        <label class="cursor-pointer border border-amber-600/30 rounded-xl p-2.5 flex items-center gap-1.5 bg-amber-50/40 text-xs font-bold text-stone-800 select-none transition shadow-2xs">
-                            <input type="radio" name="payment-option" value="bank" checked onchange="handlePaymentToggle('bank')" class="accent-amber-800">
-                            <span>1. Bank Account</span>
-                        </label>
-                        <label class="cursor-pointer border border-stone-200 rounded-xl p-2.5 flex items-center gap-1.5 bg-white text-xs font-bold text-stone-700 select-none transition">
-                            <input type="radio" name="payment-option" value="qr" onchange="handlePaymentToggle('qr')" class="accent-amber-800">
-                            <span>2. UPI QR Code</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div id="payment-bank-box" class="bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
-                    <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
-                        <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
-                    </div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Name:</span> <span class="font-bold text-stone-900">Rahul Dutta</span></div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Bank Name:</span> <span class="font-bold text-stone-900">NSDL Payments Bank</span></div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Number:</span> <span class="font-black text-amber-900 select-all tracking-wide">501066746547</span></div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">IFSC Code:</span> <span class="font-black text-amber-900 select-all">NSPB0000002</span></div>
-                    <div class="flex flex-col gap-0.5 pt-0.5"><span class="text-stone-500">Branch Name:</span> <span class="font-medium text-stone-700 text-right">One International Center, Prabhadevi</span></div>
-                </div>
-
-                <div id="payment-qr-box" class="hidden bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
-                    <div class="text-xs font-bold text-amber-950 mb-2 flex items-center justify-center gap-1">
-                        <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay via Paytm / Any UPI
-                    </div>
-                    <div class="bg-white p-2 inline-block rounded-xl border border-amber-200/60 shadow-xs">
-                        <img id="payment-qr" src="" alt="Payment QR Code" class="w-36 h-36 mx-auto">
-                    </div>
-                    <p class="text-[10px] text-stone-500 mt-2 font-medium">
-                        <i class="fas fa-info-circle text-amber-600"></i> Auto-generated Amount QR. Scan karein aur niche diye button se WhatsApp par screenshot bhejein.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-4 border-t border-stone-200 bg-stone-50">
-            <button onclick="checkoutToWhatsApp()" class="cursor-pointer w-full inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow-md transition transform active:scale-95 gap-2">
-                <i class="fab fa-whatsapp text-lg"></i> Complete Order On WhatsApp
-            </button>
-        </div>
-    </aside>
-
-    <div id="about-overlay" onclick="closeAboutUs()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
-    <div id="about-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-55 max-w-sm w-full p-6 hidden border border-stone-200 transition-all">
-        <div class="flex justify-between items-center border-b border-stone-100 pb-3 mb-4">
-            <h3 class="font-extrabold text-amber-950 text-base sm:text-lg flex items-center gap-2">
-                <i class="fas fa-circle-info text-amber-600"></i> About Our Company
-            </h3>
-            <button onclick="closeAboutUs()" class="w-7 h-7 flex items-center justify-center bg-stone-100 text-stone-500 rounded-full hover:bg-stone-200 cursor-pointer transition">
-                <i class="fas fa-times text-xs"></i>
-            </button>
-        </div>
-        <div class="space-y-4 text-xs sm:text-sm text-stone-700">
-            <div>
-                <span class="block text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">Sales Manager</span>
-                <p class="font-bold text-stone-900 text-base">Rahul dutta</p>
-            </div>
-            <div>
-                <span class="block text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">Company Address</span>
-                <p class="font-medium text-stone-800 leading-relaxed bg-stone-50 p-2.5 border border-stone-200/60 rounded-xl">
-                    Yashwantpur Bengaluru Karnataka India 560022
-                </p>
-            </div>
-            <div class="pt-2 border-t border-stone-100">
-                <a href="https://wa.me/916378857627?text=Hello%20Babu%20Trading%20Company,%20I%20need%20some%20help/information." target="_blank" class="w-full inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs gap-2 shadow-xs transition transform active:scale-95">
-                    <i class="fab fa-whatsapp text-sm"></i> WhatsApp Us For Any Help
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 p-4 flex justify-between items-center z-40 shadow-xl">
-        <div>
-            <div class="text-[10px] text-stone-400 font-bold uppercase">Total Items</div>
-            <div id="mobile-cart-info" class="text-xs font-black text-amber-950">0 Items - ₹0</div>
-        </div>
-        <button onclick="openCart()" class="bg-amber-950 hover:bg-amber-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center gap-2 shadow-md">
-            <i class="fas fa-shopping-basket text-amber-400"></i> Open Cart
-        </button>
-    </div>
-
-    <footer class="bg-amber-950 text-stone-400 py-8 border-t border-amber-900/40 mt-12 text-center text-xs pb-24 sm:pb-8">
-        <p class="text-amber-200/70 font-semibold mb-1">BABU TRADING COMPANY</p>
-        <p>&copy; 2026 Babu Trading Company. All Rights Reserved.</p>
-    </footer>
-
+    <!-- JavaScript Business Logic -->
     <script>
-        const allProducts = [
-            // Dry Fruits
-            { id: "kaju-mix", name: "Kaju Mix", price: 610, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Cashew_nuts_in_a_bowl.jpg/320px-Cashew_nuts_in_a_bowl.jpg" },
-            { id: "kaju-w240", name: "Kaju W240", price: 670, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cashews_in_a_bowl.jpg/320px-Cashews_in_a_bowl.jpg" },
-            { id: "kaju-w320", name: "Kaju W320", price: 630, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cashews_in_a_bowl.jpg/320px-Cashews_in_a_bowl.jpg" },
-            { id: "kaju-jh", name: "Kaju JH", price: 600, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cashews_in_a_bowl.jpg/320px-Cashews_in_a_bowl.jpg" },
-            { id: "pista", name: "Pista Premium", price: 810, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Pistachios_in_a_bowl.jpg/320px-Pistachios_in_a_bowl.jpg" },
-            { id: "akhrot", name: "Akhrot (Walnuts)", price: 670, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Walnuts_with_shells.jpg/320px-Walnuts_with_shells.jpg" },
-            { id: "anjeer", name: "Anjeer", price: 680, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Dried_figs.jpg/320px-Dried_figs.jpg" },
-            { id: "dry-dates", name: "Dry Dates (Chhuaara)", price: 210, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Dried_dates.jpg/320px-Dried_dates.jpg" },
-            { id: "kishmis", name: "Kishmis", price: 350, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Raisins_in_a_wooden_bowl.jpg/320px-Raisins_in_a_wooden_bowl.jpg" },
-            { id: "chilgoza", name: "Chilgoza", price: 1870, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Pine_nuts.jpg/320px-Pine_nuts.jpg" },
-            { id: "dry-kiwi", name: "Dry Kiwi", price: 320, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Dried_kiwi_fruit_slices.jpg/320px-Dried_kiwi_fruit_slices.jpg" },
-            { id: "apricot", name: "Apricot", price: 300, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Dried_apricots.jpg/320px-Dried_apricots.jpg" },
-            { id: "makhana", name: "Makhana (Fox Nuts)", price: 820, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Popped_makhana.jpg/320px-Popped_makhana.jpg" },
-            { id: "seeds", name: "Mix Seeds", price: 400, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mixed_seeds.jpg/320px-Mixed_seeds.jpg" },
-            { id: "khobani", name: "Khobani", price: 400, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Dried_apricots.jpg/320px-Dried_apricots.jpg" },
-            { id: "peanut", name: "Peanut (Moongfali)", price: 80, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Peanuts_in_shells.jpg/320px-Peanuts_in_shells.jpg" },
-            { id: "almond-mamra", name: "Almonds Mamra", price: 900, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Almonds_with_and_without_shells.jpg/320px-Almonds_with_and_without_shells.jpg" },
-            { id: "almond-california", name: "Almonds California", price: 650, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Almonds_with_and_without_shells.jpg/320px-Almonds_with_and_without_shells.jpg" },
-            { id: "almond-afghani", name: "Almonds Afghani", price: 660, cat: "Dry Fruits", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Almonds_with_and_without_shells.jpg/320px-Almonds_with_and_without_shells.jpg" },
-            // Khajur
-            { id: "azwa-khajur", name: "Azwa Khajur", price: 450, cat: "Khajur / Dates", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dates_fruit.jpg/320px-Dates_fruit.jpg" },
-            { id: "safawi-khajur", name: "Safawi Khajur", price: 370, cat: "Khajur / Dates", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dates_fruit.jpg/320px-Dates_fruit.jpg" },
-            { id: "mabroom-khajur", name: "Mabroom Khajur", price: 400, cat: "Khajur / Dates", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dates_fruit.jpg/320px-Dates_fruit.jpg" },
-            { id: "sagi-khajur", name: "Sagi Khajur", price: 270, cat: "Khajur / Dates", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dates_fruit.jpg/320px-Dates_fruit.jpg" },
-            { id: "sukri-khajur", name: "Sukri Ruttab Khajur", price: 290, cat: "Khajur / Dates", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dates_fruit.jpg/320px-Dates_fruit.jpg" },
-            { id: "majdool-khajur", name: "Majdool Khajur", price: 350, cat: "Khajur / Dates", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dates_fruit.jpg/320px-Dates_fruit.jpg" },
-            // Elaichi & Spices
-            { id: "elaichi-8mm", name: "Hari Elaichi 8MM", price: 2500, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Green_cardamom_pods.jpg/320px-Green_cardamom_pods.jpg" },
-            { id: "elaichi-7mm", name: "Hari Elaichi 7MM", price: 2270, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Green_cardamom_pods.jpg/320px-Green_cardamom_pods.jpg" },
-            { id: "elaichi-6mm", name: "Hari Elaichi 6MM", price: 2150, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Green_cardamom_pods.jpg/320px-Green_cardamom_pods.jpg" },
-            { id: "elaichi-5mm", name: "Hari Elaichi 5MM", price: 1930, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Green_cardamom_pods.jpg/320px-Green_cardamom_pods.jpg" },
-            { id: "kali-mirch", name: "Kali Mirch 10MM", price: 610, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Black_peppercorns_in_a_bowl.jpg/320px-Black_peppercorns_in_a_bowl.jpg" },
-            { id: "lal-mirch", name: "Kashmiri Lal Mirch", price: 160, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Chili_powder_in_bowl.jpg/320px-Chili_powder_in_bowl.jpg" },
-            { id: "tej-patta", name: "Tej Patta", price: 110, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Bay_leaves.jpg/320px-Bay_leaves.jpg" },
-            { id: "haldi", name: "Haldi PC", price: 90, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Turmeric_roots_and_powder.jpg/320px-Turmeric_roots_and_powder.jpg" },
-            { id: "jeera", name: "Jeera", price: 180, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Cumin_seeds.jpg/320px-Cumin_seeds.jpg" },
-            { id: "javitri", name: "Javitri", price: 700, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mace_spice.jpg/320px-Mace_spice.jpg" },
-            { id: "dhaniya", name: "Dhaniya", price: 80, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Coriander_seeds.jpg/320px-Coriander_seeds.jpg" },
-            { id: "jaiphal", name: "Jaiphal", price: 530, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Nutmeg_spice.jpg/320px-Nutmeg_spice.jpg" },
-            { id: "staranise", name: "Staranise (Chakra Phool)", price: 650, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Star_anise_pods.jpg/320px-Star_anise_pods.jpg" },
-            { id: "sahi-jeera", name: "Sahi Jeera", price: 200, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Cumin_seeds.jpg/320px-Cumin_seeds.jpg" },
-            { id: "cloves", name: "Cloves Long (Laung)", price: 630, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Cloves_in_a_bowl.jpg/320px-Cloves_in_a_bowl.jpg" },
-            { id: "dalchini", name: "Dalchini Sticks", price: 590, cat: "Spices / Masale", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Cinnamon_sticks_and_powder.jpg/320px-Cinnamon_sticks_and_powder.jpg" },
-            // Rices & Others
-            { id: "rice-sella", name: "Basmati Golden Sella Rice", price: 60, cat: "Rices & Others", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Uncooked_rice_grains.jpg/320px-Uncooked_rice_grains.jpg" },
-            { id: "rice-chabi", name: "Double Chabi Rice", price: 65, cat: "Rices & Others", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Uncooked_rice_grains.jpg/320px-Uncooked_rice_grains.jpg" },
-            { id: "rice-normal", name: "Normal Rices", price: 40, cat: "Rices & Others", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Uncooked_rice_grains.jpg/320px-Uncooked_rice_grains.jpg" },
-            { id: "coconut", name: "Coconut (Nariyal)", price: 180, cat: "Rices & Others", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Coconut_on_white_background.jpg/320px-Coconut_on_white_background.jpg" },
-            { id: "garlic-china", name: "Chaina Garlic", price: 70, cat: "Rices & Others", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Garlic_bulbs_and_cloves.jpg/320px-Garlic_bulbs_and_cloves.jpg" },
-            { id: "garlic-indian", name: "Indian Garlic", price: 65, cat: "Rices & Others", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Garlic_bulbs_and_cloves.jpg/320px-Garlic_bulbs_and_cloves.jpg" }
-        ];
-
         let cart = [];
-        const WHATSAPP_NUMBER = "916378857627"; 
-        const MERCHANT_UPI_ID = "babutraders@nsdl"; 
+        const WHATSAPP_NUMBER = "916378857627";
 
-        function initProducts() {
-            renderGrid(allProducts);
-        }
-
-        function renderGrid(productsArray) {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = '';
-
-            if(productsArray.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-12 text-stone-400 text-sm font-medium bg-white rounded-2xl border border-stone-200">
-                        <i class="fas fa-face-frown text-2xl mb-2 text-stone-300"></i>
-                        <p>Aapki search ka koi item nahi mila!</p>
-                    </div>`;
-                return;
-            }
-
-            productsArray.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "bg-white p-3 rounded-2xl border border-stone-200 shadow-xs hover:border-amber-600/60 hover:shadow-md transition-all flex flex-col justify-between";
-                
-                const imgHTML = p.img ? 
-                    `<img src="${p.img}" class="w-full h-28 sm:h-36 object-cover rounded-xl mb-3 shadow-xs">` : 
-                    `<div class="w-full h-28 sm:h-36 bg-stone-100 rounded-xl mb-3 flex items-center justify-center border border-stone-100"><i class="fas fa-image text-stone-300 text-2xl"></i></div>`;
-
-                card.innerHTML = `
-                    <div>
-                        ${imgHTML}
-                        <span class="inline-block text-[9px] bg-stone-100 text-stone-600 font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">${p.cat}</span>
-                        <h3 class="font-bold text-stone-900 text-xs sm:text-sm mt-1 tracking-tight line-clamp-1">${p.name}</h3>
-                    </div>
-                    <div class="mt-2 pt-2 border-t border-stone-100 flex flex-col gap-1.5">
-                        <div class="text-sm sm:text-base font-black text-amber-950">₹${p.price} <span class="text-[10px] font-normal text-stone-500">/ kg</span></div>
-                        
-                        <div class="flex items-center justify-between gap-1 mt-0.5">
-                            <div class="flex items-center border border-stone-300 rounded-lg bg-stone-50 px-1 h-8 w-16 justify-center">
-                                <input type="number" id="qty-input-${p.id}" value="1" min="1" class="w-6 text-center font-bold text-stone-800 text-xs bg-transparent focus:outline-none">
-                                <span class="text-[9px] text-stone-500 font-bold select-none">kg</span>
-                            </div>
-                            
-                            <button onclick="addProductWithQty('${p.id}', '${p.name}', ${p.price})" class="cursor-pointer flex-1 h-8 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg text-[11px] flex items-center justify-center gap-1 transition active:scale-95 shadow-xs">
-                                <i class="fas fa-plus text-[8px]"></i> Add
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function addProductWithQty(id, name, price) {
-            const qtyBox = document.getElementById(`qty-input-${id}`);
-            let selectedQty = parseInt(qtyBox.value) || 1;
-            if(selectedQty < 1) selectedQty = 1;
-
-            const existingItem = cart.find(item => item.id === id);
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
             if (existingItem) {
-                existingItem.quantity += selectedQty;
+                existingItem.quantity += 1;
             } else {
-                cart.push({ id: id, name: name, price: price, quantity: selectedQty });
+                cart.push({ name, price, quantity: 1 });
             }
-            
-            qtyBox.value = 1; 
-            renderCart();
-            openCart();
+            updateCartUI();
         }
 
-        function searchItems(keyword) {
-            const clearBtn = document.getElementById('search-clear-btn');
-            if(keyword.trim().length > 0) {
-                clearBtn.classList.remove('hidden');
-            } else {
-                clearBtn.classList.add('hidden');
+        function updateQuantity(name, change) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
             }
-
-            const filtered = allProducts.filter(p => 
-                p.name.toLowerCase().includes(keyword.toLowerCase()) || 
-                p.cat.toLowerCase().includes(keyword.toLowerCase())
-            );
-            renderGrid(filtered);
+            updateCartUI();
         }
 
-        function clearSearch() {
-            document.getElementById('search-input').value = '';
-            document.getElementById('search-clear-btn').classList.add('hidden');
-            renderGrid(allProducts);
-        }
+        function updateCartUI() {
+            // Update counts
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').innerText = totalItems;
 
-        function openAboutUs() {
-            document.getElementById('about-modal').classList.remove('hidden');
-            document.getElementById('about-overlay').classList.remove('hidden');
-        }
+            // Update Total Price
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cartTotal').innerText = '₹' + totalPrice;
 
-        function closeAboutUs() {
-            document.getElementById('about-modal').classList.add('hidden');
-            document.getElementById('about-overlay').classList.add('hidden');
-        }
-
-        function openCart() {
-            document.getElementById('cart-sidebar').classList.remove('translate-x-full');
-            document.getElementById('cart-sidebar').classList.add('translate-x-0');
-            document.getElementById('cart-overlay').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function handlePaymentToggle(type) {
-            const bankBox = document.getElementById('payment-bank-box');
-            const qrBox = document.getElementById('payment-qr-box');
-            
-            const radioButtons = document.querySelectorAll('input[name="payment-option"]');
-            radioButtons.forEach(rb => {
-                rb.parentElement.classList.remove('border-amber-600/30', 'bg-amber-50/40', 'text-stone-800', 'shadow-2xs');
-                rb.parentElement.classList.add('border-stone-200', 'bg-white', 'text-stone-700');
-            });
-
-            const checkedRadio = document.querySelector('input[name="payment-option"]:checked');
-            checkedRadio.parentElement.classList.remove('border-stone-200', 'bg-white', 'text-stone-700');
-            checkedRadio.parentElement.classList.add('border-amber-600/30', 'bg-amber-50/40', 'text-stone-800', 'shadow-2xs');
-
-            if(type === 'bank') {
-                bankBox.classList.remove('hidden');
-                qrBox.classList.add('hidden');
-            } else {
-                bankBox.classList.add('hidden');
-                qrBox.classList.remove('hidden');
-            }
-        }
-
-        function closeCart() {
-            document.getElementById('cart-sidebar').classList.remove('translate-x-0');
-            document.getElementById('cart-sidebar').classList.add('translate-x-full');
-            document.getElementById('cart-overlay').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        function updateQuantity(id, change) {
-            const item = cart.find(item => item.id === id);
-            if (!item) return;
-            item.quantity += change;
-            if (item.quantity <= 0) {
-                cart = cart.filter(i => i.id !== id);
-            }
-            renderCart();
-        }
-
-        function renderCart() {
-            const emptyDiv = document.getElementById('cart-empty');
-            const listDiv = document.getElementById('cart-items-list');
-            const summaryDiv = document.getElementById('cart-summary-section');
-            const countBadge = document.getElementById('cart-count');
-            const totalSpan = document.getElementById('cart-total-price');
-            const mobileInfo = document.getElementById('mobile-cart-info');
-            const qrImage = document.getElementById('payment-qr');
-
-            let totalItems = 0;
-            let totalPrice = 0;
-            listDiv.innerHTML = '';
-
-            cart.forEach(item => {
-                totalItems += item.quantity;
-                totalPrice += (item.price * item.quantity);
-            });
-
-            countBadge.innerText = totalItems;
-            mobileInfo.innerText = `${totalItems} kg Items - ₹${totalPrice}`;
-
+            // Render Items
+            const container = document.getElementById('cartItemsContainer');
             if (cart.length === 0) {
-                emptyDiv.classList.remove('hidden');
-                listDiv.classList.add('hidden');
-                summaryDiv.classList.add('hidden');
-                totalSpan.innerText = "₹0";
-                qrImage.src = "";
+                container.innerHTML = '<p class="text-center text-gray-400 my-8 py-8">Your cart is empty. Add some delicious sweets!</p>';
                 return;
             }
 
-            emptyDiv.classList.add('hidden');
-            listDiv.classList.remove('hidden');
-            summaryDiv.classList.remove('hidden');
-
-            cart.forEach(item => {
-                const itemRow = document.createElement('div');
-                itemRow.className = "flex justify-between items-center bg-stone-50 p-2.5 rounded-xl border border-stone-200 text-sm";
-                itemRow.innerHTML = `
-                    <div class="flex-1 pr-2">
-                        <div class="font-bold text-stone-800 text-xs sm:text-sm">${item.name}</div>
-                        <div class="text-xs text-stone-500">₹${item.price} / kg</div>
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between bg-white p-3 border border-gray-100 rounded-xl shadow-xs">
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                        <p class="text-xs text-gray-500">₹${item.price} x ${item.quantity}</p>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 bg-stone-200 text-stone-700 font-bold rounded-md text-xs flex items-center justify-center cursor-pointer hover:bg-stone-300">-</button>
-                        <span class="font-bold text-stone-800 text-xs w-6 text-center">${item.quantity} kg</span>
-                        <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 bg-stone-200 text-stone-700 font-bold rounded-md text-xs flex items-center justify-center cursor-pointer hover:bg-stone-300">+</button>
+                    <div class="flex items-center gap-2.5 bg-gray-100 px-2 py-1 rounded-lg">
+                        <button onclick="updateQuantity('${item.name}', -1)" class="text-gray-600 hover:text-red-600 font-bold px-1.5 cursor-pointer">-</button>
+                        <span class="text-sm font-bold text-gray-800 w-4 text-center">${item.quantity}</span>
+                        <button onclick="updateQuantity('${item.name}', 1)" class="text-gray-600 hover:text-green-600 font-bold px-1.5 cursor-pointer">+</button>
                     </div>
-                    <div class="font-bold text-amber-950 text-right w-16 ml-2">₹${item.price * item.quantity}</div>
-                `;
-                listDiv.appendChild(itemRow);
-            });
-
-            totalSpan.innerText = "₹" + totalPrice;
-
-            const upiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=Order%20Payment`;
-            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
+                </div>
+            `).join('');
         }
 
-        function checkoutToWhatsApp() {
+        function toggleCart() {
+            const panel = document.getElementById('cartPanel');
+            panel.classList.toggle('hidden');
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchProductsMobile() {
+            const query = document.getElementById('searchBarMobile').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function sendWhatsAppOrder() {
             if (cart.length === 0) {
-                alert("Aapka cart khali hai!");
+                alert("Aapka cart khaali hai! Pehle kuch items add karein.");
                 return;
             }
 
-            const name = document.getElementById('cust-name').value.trim();
-            const phone = document.getElementById('cust-phone').value.trim();
-            const address = document.getElementById('cust-address').value.trim();
-
-            if (!name || !phone || !address) {
-                alert("Kripya apna Name, Mobile Number aur Address sahi se bharein!");
-                return;
-            }
-
-            const paymentOptionSelected = document.querySelector('input[name="payment-option"]:checked').value;
-            let paymentMethodString = (paymentOptionSelected === 'bank') ? "Bank Account Transfer ( Rahul Dutta )" : "UPI QR Code Scanner";
-
-            let message = `📦 *NEW ORDER - BABU TRADING COMPANY*\n`;
-            message += `----------------------------------\n`;
-            message += `👤 *Customer Name:* ${name}\n`;
-            message += `📞 *Customer Mobile:* ${phone}\n`;
-            message += `📍 *Delivery Address:* ${address}\n`;
-            message += `💳 *Payment Method:* ${paymentMethodString}\n`;
-            message += `----------------------------------\n\n`;
-            message += `🛒 *ORDERED ITEMS:*\n`;
-
-            let overallTotal = 0;
+            let message = `*Naya Order Received!* 🛍️\n\n`;
             cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                overallTotal += itemTotal;
-                message += `${index + 1}. ${item.name} (${item.quantity} kg) - ₹${itemTotal}\n`;
+                message += `${index + 1}. *${item.name}* - Qty: ${item.quantity} (₹${item.price * item.quantity})\n`;
             });
 
-            message += `\n----------------------------------\n`;
-            message += `💰 *TOTAL BILL AMOUNT:* *₹${overallTotal}*\n`;
-            message += `----------------------------------\n`;
-            message += `_Maine details submit kar di hain, kripya order confirm karein._`;
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `\n*Total Amount:* ₹${totalPrice}\n\n`;
+            message += `*Payment Mode:* Bank Transfer (Rahul Dutta / NSDL Bank)\n`;
+            message += `Kindly confirm the order and delivery time. Thank you!`;
 
-            const encodedText = encodeURIComponent(message);
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`, '_blank');
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
