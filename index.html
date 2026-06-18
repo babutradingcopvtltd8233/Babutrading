@@ -32,9 +32,8 @@
                     </span>
                 </div>
 
-                <!-- Right Side Actions (About Us + Cart) -->
+                <!-- Right Side Actions -->
                 <div class="flex items-center gap-4 relative">
-                    <!-- About Us Nav Link Button -->
                     <button onclick="openAboutUs()" class="cursor-pointer text-stone-600 hover:text-amber-950 font-bold text-sm transition px-2 py-1">
                         About Us
                     </button>
@@ -49,13 +48,14 @@
         </div>
     </nav>
 
-    <!-- NEW BIGGER HERO SECTION WITH SPICES LOGO & LIVE SEARCH -->
-    <header class="relative bg-[radial-gradient(#f5f5f4_1px,transparent_1px)] [background-size:16px_16px] py-16 md:py-24 border-b border-stone-200/50">
-        <div class="max-w-4xl mx-auto px-4 text-center">
+    <!-- HERO SECTION WITH YOUR SCREENSHOT BACKGROUND IMAGE -->
+    <header class="relative py-16 md:py-24 border-b border-stone-200/50 bg-cover bg-center bg-no-repeat" 
+            style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.92)), url('https://coloured-ivory-b6u3sadp.edgeone.dev/Screenshot_20260613-082520_com.facebook.katana.png');">
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             
-            <!-- Spices Logo Added -->
+            <!-- Spices Logo over Cover Photo -->
             <div class="flex justify-center mb-5">
-                <div class="bg-amber-100 border-2 border-amber-200 text-amber-800 p-4 rounded-full shadow-xs">
+                <div class="bg-white border-2 border-amber-200 text-amber-800 p-4 rounded-full shadow-md">
                     <i class="fas fa-mortar-pestle text-4xl sm:text-5xl"></i>
                 </div>
             </div>
@@ -66,7 +66,7 @@
             <h1 class="text-3xl sm:text-5xl font-black text-amber-950 mt-3 leading-tight tracking-tight">
                 Premium Dry Fruits & Spices
             </h1>
-            <p class="mt-3 text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed">
+            <p class="mt-3 text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed font-medium">
                 Items ko cart me jodein, QR code scan karke pay karein aur ek click me order details WhatsApp par bhejein.
             </p>
 
@@ -94,19 +94,14 @@
             <span class="text-[10px] bg-amber-950 text-amber-100 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Rate: Per 1 KG</span>
         </div>
 
-        <!-- Master Grid Container -->
-        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Items will auto-populate here -->
-        </div>
+        <!-- Grid Container -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
     </div>
 
     <!-- MODERN CART DRAWER -->
-    <!-- Backdrop -->
     <div id="cart-overlay" onclick="closeCart()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
 
-    <!-- Drawer Panel -->
     <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-55 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
-        <!-- Header -->
         <div class="p-4 border-b border-stone-200 flex justify-between items-center bg-stone-50">
             <h2 class="text-base sm:text-lg font-extrabold text-amber-950 flex items-center gap-2">
                 <i class="fas fa-shopping-cart text-amber-600"></i> Aapka Cart
@@ -116,25 +111,20 @@
             </button>
         </div>
 
-        <!-- Scrollable Content -->
         <div class="p-4 flex-1 overflow-y-auto space-y-4">
-            <!-- Empty Cart State -->
             <div id="cart-empty" class="py-16 text-center text-stone-400 text-sm">
                 <i class="fas fa-basket-shopping text-4xl mb-3 text-stone-300"></i>
                 <p class="font-medium">Aapka cart abhi khali hai.<br>Kripya products add karein!</p>
             </div>
 
-            <!-- Cart Items Render -->
             <div id="cart-items-list" class="space-y-3 hidden"></div>
 
-            <!-- Summary Section -->
             <div id="cart-summary-section" class="border-t border-stone-100 pt-4 hidden space-y-4">
                 <div class="flex justify-between items-center font-bold text-stone-900 text-base">
                     <span>Total Bill Amount:</span>
                     <span id="cart-total-price" class="text-amber-950 text-xl">₹0</span>
                 </div>
 
-                <!-- Form Details -->
                 <div class="space-y-3 bg-stone-50 p-3 rounded-xl border border-stone-200/60">
                     <div>
                         <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Aapka Naam / Name *</label>
@@ -150,7 +140,7 @@
                     </div>
                 </div>
 
-                <!-- NEW PAYMENT METHOD SELECTOR OPTION -->
+                <!-- PAYMENT CHOICE METHOD SELECTOR -->
                 <div class="space-y-2">
                     <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide">Choose Payment Method / पेमेंट ऑप्शन चुनें *</label>
                     <div class="grid grid-cols-2 gap-2">
@@ -165,7 +155,7 @@
                     </div>
                 </div>
 
-                <!-- 1. BANK ACCOUNT VIEW PANEL -->
+                <!-- 1. BANK SELECTION DETAILS -->
                 <div id="payment-bank-box" class="bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
                     <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
                         <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
@@ -177,7 +167,7 @@
                     <div class="flex flex-col gap-0.5 pt-0.5"><span class="text-stone-500">Branch Name:</span> <span class="font-medium text-stone-700 text-right">One International Center, Prabhadevi</span></div>
                 </div>
 
-                <!-- 2. UPI QR CODE VIEW PANEL (Hidden by default, shows on click) -->
+                <!-- 2. QR SELECTION DETAILS -->
                 <div id="payment-qr-box" class="hidden bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
                     <div class="text-xs font-bold text-amber-950 mb-2 flex items-center justify-center gap-1">
                         <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay via Paytm / Any UPI
@@ -192,7 +182,6 @@
             </div>
         </div>
 
-        <!-- Footer Fixed Button -->
         <div class="p-4 border-t border-stone-200 bg-stone-50">
             <button onclick="checkoutToWhatsApp()" class="cursor-pointer w-full inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow-md transition transform active:scale-95 gap-2">
                 <i class="fab fa-whatsapp text-lg"></i> Complete Order On WhatsApp
@@ -248,7 +237,6 @@
 
     <!-- JAVA SCRIPT LOGIC -->
     <script>
-        // MASTER ARRAY WITH ALL 47 ITEMS (UNTOUCHED)
         const allProducts = [
             // Dry Fruits
             { id: "kaju-mix", name: "Kaju Mix", price: 610, cat: "Dry Fruits" },
@@ -406,19 +394,16 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // NEW PAYMENT METHOD TOGGLE SYSTEM VISIBILITY LOGIC
         function handlePaymentToggle(type) {
             const bankBox = document.getElementById('payment-bank-box');
             const qrBox = document.getElementById('payment-qr-box');
             
-            // Remove highlighting styles from both parent labels first
             const radioButtons = document.querySelectorAll('input[name="payment-option"]');
             radioButtons.forEach(rb => {
                 rb.parentElement.classList.remove('border-amber-600/30', 'bg-amber-50/40', 'text-stone-800', 'shadow-2xs');
                 rb.parentElement.classList.add('border-stone-200', 'bg-white', 'text-stone-700');
             });
 
-            // Add active styles to selected choice
             const checkedRadio = document.querySelector('input[name="payment-option"]:checked');
             checkedRadio.parentElement.classList.remove('border-stone-200', 'bg-white', 'text-stone-700');
             checkedRadio.parentElement.classList.add('border-amber-600/30', 'bg-amber-50/40', 'text-stone-800', 'shadow-2xs');
@@ -503,7 +488,6 @@
 
             totalSpan.innerText = "₹" + totalPrice;
 
-            // UPI payload generator 
             const upiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=Order%20Payment`;
             qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
         }
@@ -523,7 +507,6 @@
                 return;
             }
 
-            // Get selected payment option
             const paymentOptionSelected = document.querySelector('input[name="payment-option"]:checked').value;
             let paymentMethodString = (paymentOptionSelected === 'bank') ? "Bank Account Transfer ( Rahul Dutta )" : "UPI QR Code Scanner";
 
