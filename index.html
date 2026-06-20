@@ -264,7 +264,7 @@
             { id: "elaichi-8mm", name: "Hari Elaichi 8MM", price: 2500, cat: "Spices / Masale" },
             { id: "elaichi-7mm", name: "Hari Elaichi 7MM", price: 2270, cat: "Spices / Masale" },
             { id: "elaichi-6mm", name: "Hari Elaichi 6MM", price: 2150, cat: "Spices / Masale" },
-            { id: "elaichi-5mm", name: "Hari Elaichi 5MM", price: 1930, font: "Spices / Masale" },
+            { id: "elaichi-5mm", name: "Hari Elaichi 5MM", price: 1930, cat: "Spices / Masale" },
             { id: "kali-mirch", name: "Kali Mirch 10MM", price: 610, cat: "Spices / Masale" },
             { id: "lal-mirch", name: "Kashmiri Lal Mirch", price: 120, cat: "Spices / Masale" },
             { id: "tej-patta", name: "Tej Patta", price: 110, cat: "Spices / Masale" },
@@ -438,7 +438,7 @@
             const mobileInfo = document.getElementById('mobile-cart-info');
             const qrImage = document.getElementById('payment-qr');
             const payNowBtn = document.getElementById('payment-now-btn');
-            const paymentBankBtn = document.getElementById('payment-bank-btn'); // Bank Pay Button Reference
+            const paymentBankBtn = document.getElementById('payment-bank-btn');
 
             let totalItems = 0;
             let totalPrice = 0;
@@ -493,7 +493,7 @@
 
             totalSpan.innerText = "₹" + totalPrice;
 
-            // 1. Dynamic Link for QR Box (via standard Merchant UPI ID)
+            // 1. DYNAMIC DEEP LINK FOR QR SCANNERS & PAY NOW BUTTON
             const upiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=Order%20Payment`;
             qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
             if(payNowBtn) {
@@ -501,7 +501,7 @@
                 payNowBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now (₹${totalPrice})`;
             }
 
-            // 2. Dynamic Link for Bank Box (via NPCI Account+IFSC Global VPA Standard)
+            // 2. DYNAMIC DEEP LINK FOR DIRECT BANK TRANSFER VIA NPCI STANDARD
             const bankUpiString = `upi://pay?pa=501066746547@NSPB0000002.ifsc.npci&pn=Rahul%20Dutta&am=${totalPrice}&cu=INR&tn=Order%20Payment`;
             if(paymentBankBtn) {
                 paymentBankBtn.href = bankUpiString;
