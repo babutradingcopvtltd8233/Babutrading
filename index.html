@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wholesale market - BABU TRADING CO. Bengaluru</title>
-    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,25 +13,21 @@
 </head>
 <body class="bg-stone-50/50 text-stone-800 antialiased" onload="initProducts()">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 text-amber-100/90 text-center py-2 px-4 text-xs font-medium tracking-wide flex flex-wrap justify-center gap-x-6 gap-y-1 shadow-md border-b border-amber-800/30">
         <span class="flex items-center gap-1.5"><i class="fas fa-truck text-amber-400 text-xs"></i> Fast Pan-India Delivery</span>
         <span class="hidden sm:inline text-amber-800/60">|</span>
         <span class="flex items-center gap-1.5"><i class="fas fa-shield-halved text-amber-400 text-xs"></i> 100% Pure & Fresh Quality</span>
     </div>
 
-    <!-- PREMIUM NAVIGATION -->
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200/60 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <!-- Branding -->
                 <div class="flex-shrink-0">
                     <span class="text-xl sm:text-2xl font-extrabold text-amber-950 tracking-tight uppercase">
                         Babu Trading <span class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Company</span>
                     </span>
                 </div>
 
-                <!-- Right Side Actions -->
                 <div class="flex items-center gap-4 relative">
                     <button onclick="openAboutUs()" class="cursor-pointer text-stone-600 hover:text-amber-950 font-bold text-sm transition px-2 py-1">
                         About Us
@@ -48,12 +43,10 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH YOUR SCREENSHOT BACKGROUND IMAGE -->
     <header class="relative py-16 md:py-24 border-b border-stone-200/50 bg-cover bg-center bg-no-repeat" 
             style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.92)), url('https://coloured-ivory-b6u3sadp.edgeone.dev/Screenshot_20260613-082520_com.facebook.katana.png');">
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             
-            <!-- Spices Logo over Cover Photo -->
             <div class="flex justify-center mb-5">
                 <div class="bg-white border-2 border-amber-200 text-amber-800 p-4 rounded-full shadow-md">
                     <i class="fas fa-mortar-pestle text-4xl sm:text-5xl"></i>
@@ -70,7 +63,6 @@
                 Items ko cart me jodein, QR code scan karke pay karein aur ek click me order details WhatsApp par bhejein.
             </p>
 
-            <!-- 🔍 SEARCH BAR COMPONENT -->
             <div class="max-w-md mx-auto mt-8 px-2">
                 <div class="relative bg-white rounded-2xl shadow-md border border-stone-200 p-1 flex items-center">
                     <div class="pl-3 text-stone-400">
@@ -85,7 +77,6 @@
         </div>
     </header>
 
-    <!-- PRODUCTS GRID SECTION -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-[50vh]">
         <div class="border-b border-stone-200 pb-4 mb-6 flex justify-between items-end">
             <h2 class="text-lg sm:text-xl font-extrabold text-amber-950 tracking-tight flex items-center gap-2">
@@ -94,11 +85,9 @@
             <span class="text-[10px] bg-amber-950 text-amber-100 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Rate: Per 1 KG</span>
         </div>
 
-        <!-- Grid Container -->
         <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
     </div>
 
-    <!-- MODERN CART DRAWER -->
     <div id="cart-overlay" onclick="closeCart()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
 
     <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-55 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
@@ -140,7 +129,6 @@
                     </div>
                 </div>
 
-                <!-- PAYMENT CHOICE METHOD SELECTOR -->
                 <div class="space-y-2">
                     <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide">Choose Payment Method / पेमेंट ऑप्शन चुनें *</label>
                     <div class="grid grid-cols-2 gap-2">
@@ -155,7 +143,6 @@
                     </div>
                 </div>
 
-                <!-- 1. BANK SELECTION DETAILS -->
                 <div id="payment-bank-box" class="bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
                     <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
                         <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
@@ -167,7 +154,6 @@
                     <div class="flex flex-col gap-0.5 pt-0.5"><span class="text-stone-500">Branch Name:</span> <span class="font-medium text-stone-700 text-right">One International Center, Prabhadevi</span></div>
                 </div>
 
-                <!-- 2. QR SELECTION DETAILS -->
                 <div id="payment-qr-box" class="hidden bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
                     <div class="text-xs font-bold text-amber-950 mb-2 flex items-center justify-center gap-1">
                         <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay via Paytm / Any UPI
@@ -175,8 +161,15 @@
                     <div class="bg-white p-2 inline-block rounded-xl border border-amber-200/60 shadow-xs">
                         <img id="payment-qr" src="" alt="Payment QR Code" class="w-36 h-36 mx-auto">
                     </div>
+
+                    <div class="mt-3">
+                        <a id="payment-now-btn" href="#" class="w-full inline-flex items-center justify-center bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded-xl text-sm gap-2 shadow-md transition transform active:scale-95">
+                            <i class="fas fa-wallet"></i> Pay Now (₹0)
+                        </a>
+                    </div>
+
                     <p class="text-[10px] text-stone-500 mt-2 font-medium">
-                        <i class="fas fa-info-circle text-amber-600"></i> Auto-generated Amount QR. Scan karein aur niche diye button se WhatsApp par screenshot bhejein.
+                        <i class="fas fa-info-circle text-amber-600"></i> Mobile Users upar diye button se direct pay karein. Computer users scan karein.
                     </p>
                 </div>
             </div>
@@ -189,7 +182,6 @@
         </div>
     </aside>
 
-    <!-- DYNAMIC ABOUT US MODAL WINDOW -->
     <div id="about-overlay" onclick="closeAboutUs()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
     <div id="about-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-55 max-w-sm w-full p-6 hidden border border-stone-200 transition-all">
         <div class="flex justify-between items-center border-b border-stone-100 pb-3 mb-4">
@@ -219,7 +211,6 @@
         </div>
     </div>
 
-    <!-- MOBILE FIXED BOTTOM BAR -->
     <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 p-4 flex justify-between items-center z-40 shadow-xl">
         <div>
             <div class="text-[10px] text-stone-400 font-bold uppercase">Total Items</div>
@@ -235,7 +226,6 @@
         <p>&copy; 2026 Babu Trading Company. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVA SCRIPT LOGIC -->
     <script>
         const allProducts = [
             // Dry Fruits
@@ -269,7 +259,7 @@
             { id: "elaichi-8mm", name: "Hari Elaichi 8MM", price: 2500, cat: "Spices / Masale" },
             { id: "elaichi-7mm", name: "Hari Elaichi 7MM", price: 2270, cat: "Spices / Masale" },
             { id: "elaichi-6mm", name: "Hari Elaichi 6MM", price: 2150, cat: "Spices / Masale" },
-            { id: "elaichi-5mm", name: "Hari Elaichi 5MM", price: 1930, cat: "Spices / Masale" },
+            { id: "elaichi-5mm", name: "Hari Elaichi 5MM", price: 1930, font: "Spices / Masale" },
             { id: "kali-mirch", name: "Kali Mirch 10MM", price: 610, cat: "Spices / Masale" },
             { id: "lal-mirch", name: "Kashmiri Lal Mirch", price: 120, cat: "Spices / Masale" },
             { id: "tej-patta", name: "Tej Patta", price: 110, cat: "Spices / Masale" },
@@ -442,6 +432,7 @@
             const totalSpan = document.getElementById('cart-total-price');
             const mobileInfo = document.getElementById('mobile-cart-info');
             const qrImage = document.getElementById('payment-qr');
+            const payNowBtn = document.getElementById('payment-now-btn'); // Reference to Pay Now Button
 
             let totalItems = 0;
             let totalPrice = 0;
@@ -461,6 +452,10 @@
                 summaryDiv.classList.add('hidden');
                 totalSpan.innerText = "₹0";
                 qrImage.src = "";
+                if(payNowBtn) {
+                    payNowBtn.href = "#";
+                    payNowBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now (₹0)`;
+                }
                 return;
             }
 
@@ -488,8 +483,17 @@
 
             totalSpan.innerText = "₹" + totalPrice;
 
+            // Generate UPI link dynamically with current cart total
             const upiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=Order%20Payment`;
+            
+            // Set image source for desktop scanners
             qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
+            
+            // Apply current UPI link and text to the Pay Now Button
+            if(payNowBtn) {
+                payNowBtn.href = upiString;
+                payNowBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now (₹${totalPrice})`;
+            }
         }
 
         function checkoutToWhatsApp() {
@@ -508,7 +512,7 @@
             }
 
             const paymentOptionSelected = document.querySelector('input[name="payment-option"]:checked').value;
-            let paymentMethodString = (paymentOptionSelected === 'bank') ? "Bank Account Transfer ( Rahul Dutta )" : "UPI QR Code Scanner";
+            let paymentMethodString = (paymentOptionSelected === 'bank') ? "Bank Account Transfer ( Rahul Dutta )" : "UPI App / QR Code Scanner";
 
             let message = `📦 *NEW ORDER - BABU TRADING COMPANY*\n`;
             message += `----------------------------------\n`;
