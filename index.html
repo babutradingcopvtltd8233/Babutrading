@@ -132,37 +132,20 @@
                 <div class="space-y-2">
                     <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide">Choose Payment Method / पेमेंट ऑप्शन चुनें *</label>
                     <div class="grid grid-cols-2 gap-2">
-                        <label class="cursor-pointer border border-amber-600/30 rounded-xl p-2.5 flex items-center gap-1.5 bg-amber-50/40 text-xs font-bold text-stone-800 select-none transition shadow-2xs">
-                            <input type="radio" name="payment-option" value="bank" checked onchange="handlePaymentToggle('bank')" class="accent-amber-800">
-                            <span>1. Bank Account</span>
+                        <label class="cursor-pointer border border-stone-200 rounded-xl p-2.5 flex items-center gap-1.5 bg-white text-xs font-bold text-stone-700 select-none transition">
+                            <input type="radio" name="payment-option" value="qr" checked onchange="handlePaymentToggle('qr')" class="accent-amber-800">
+                            <span>1. UPI App / QR Code</span>
                         </label>
                         <label class="cursor-pointer border border-stone-200 rounded-xl p-2.5 flex items-center gap-1.5 bg-white text-xs font-bold text-stone-700 select-none transition">
-                            <input type="radio" name="payment-option" value="qr" onchange="handlePaymentToggle('qr')" class="accent-amber-800">
-                            <span>2. UPI QR Code</span>
+                            <input type="radio" name="payment-option" value="bank" onchange="handlePaymentToggle('bank')" class="accent-amber-800">
+                            <span>2. Bank Account</span>
                         </label>
                     </div>
                 </div>
 
-                <div id="payment-bank-box" class="bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
-                    <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
-                        <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
-                    </div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Name:</span> <span class="font-bold text-stone-900">Rahul Dutta</span></div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Bank Name:</span> <span class="font-bold text-stone-900">NSDL Payments Bank</span></div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Number:</span> <span class="font-black text-amber-900 select-all tracking-wide">501066746547</span></div>
-                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">IFSC Code:</span> <span class="font-black text-amber-900 select-all">NSPB0000002</span></div>
-                    <div class="flex flex-col gap-0.5 pt-0.5"><span class="text-stone-500">Branch Name:</span> <span class="font-medium text-stone-700 text-right">One International Center, Prabhadevi</span></div>
-                    
-                    <div class="mt-3">
-                        <button type="button" id="payment-bank-btn" onclick="openUPI('bank')" class="w-full inline-flex items-center justify-center bg-amber-800 hover:bg-amber-900 text-white font-bold py-2.5 rounded-xl text-sm gap-2 shadow-md transition transform active:scale-95 cursor-pointer">
-                            <i class="fas fa-wallet"></i> Pay Now to Bank (₹0)
-                        </button>
-                    </div>
-                </div>
-
-                <div id="payment-qr-box" class="hidden bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
+                <div id="payment-qr-box" class="bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
                     <div class="text-xs font-bold text-amber-950 mb-2 flex items-center justify-center gap-1">
-                        <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay via Paytm / Any UPI
+                        <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay to Mobile Number
                     </div>
                     <div class="bg-white p-2 inline-block rounded-xl border border-amber-200/60 shadow-xs">
                         <img id="payment-qr" src="" alt="Payment QR Code" class="w-36 h-36 mx-auto">
@@ -174,8 +157,25 @@
                         </button>
                     </div>
                     <p class="text-[10px] text-stone-500 mt-2 font-medium">
-                        <i class="fas fa-info-circle text-amber-600"></i> Mobile Users upar diye button se direct pay karein. Computer users scan karein.
+                        <i class="fas fa-info-circle text-amber-600"></i> Mobile users is "Pay Now" button se direct PhonePe/UPI app me pay karein. Laptop users scan karein.
                     </p>
+                </div>
+
+                <div id="payment-bank-box" class="hidden bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
+                    <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
+                        <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
+                    </div>
+                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Name:</span> <span class="font-bold text-stone-900">Rahul Dutta</span></div>
+                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Bank Name:</span> <span class="font-bold text-stone-900">NSDL Payments Bank</span></div>
+                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Number:</span> <span class="font-black text-amber-900 select-all tracking-wide">501066746547</span></div>
+                    <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">IFSC Code:</span> <span class="font-black text-amber-900 select-all">NSPB0000002</span></div>
+                    <div class="flex flex-col gap-0.5 pt-0.5"><span class="text-stone-500">Branch Name:</span> <span class="font-medium text-stone-700 text-right">One International Center, Prabhadevi</span></div>
+                    
+                    <div class="mt-3">
+                        <button type="button" id="payment-bank-btn" onclick="openUPI('bank')" class="w-full inline-flex items-center justify-center bg-amber-800 hover:bg-amber-900 text-white font-bold py-2.5 rounded-xl text-sm gap-2 shadow-md transition transform active:scale-95 cursor-pointer">
+                            <i class="fas fa-info-circle"></i> View Bank Payment Instructions
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -232,7 +232,7 @@
     </footer>
 
     <script>
-        // Aapka Original Premium Product Data
+        // Original Products List
         const allProducts = [
             // Dry Fruits
             { id: "kaju-mix", name: "Kaju Mix", price: 610, cat: "Dry Fruits" },
@@ -289,7 +289,7 @@
 
         let cart = [];
         const WHATSAPP_NUMBER = "916378857627"; 
-        const MERCHANT_UPI_ID = "babutraders@nsdl"; 
+        const MERCHANT_UPI_ID = "6378857627@ptyes"; // Updated to your personal Mobile UPI handle
 
         function initProducts() {
             renderGrid(allProducts);
@@ -420,7 +420,7 @@
             document.body.style.overflow = '';
         }
 
-        // Fixed Secure UPI Redirection Trigger Method 
+        // Secure Direct UPI Redirection to Mobile Number ID
         function openUPI(type) {
             let totalPrice = 0;
             cart.forEach(item => {
@@ -432,16 +432,15 @@
                 return;
             }
 
-            let upiLink = "";
             if (type === 'bank') {
-                // Bank Details Standard Deep Link
-                upiLink = `upi://pay?pa=501066746547@NSPB0000002.ifsc.npci&pn=Rahul%20Dutta&am=${totalPrice}&cu=INR&tn=BabuTradingOrder`;
-            } else {
-                // QR Merchant Standard Deep Link
-                upiLink = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=BabuTradingOrder`;
+                alert(`⚠️ Bank Account Notice:\n\nDirect bank links app block karti hain. Kripya screen par diye gaye details:\n• Account: 501066746547\n• IFSC: NSPB0000002\n\nko copy karke net banking se transfer karein, ya fir aasan payment ke liye "UPI App / QR Code" option select karke directly pay karein!`);
+                return;
             }
 
-            // Directly redirection to bypass Chrome/PhonePe security block standard 
+            // Direct Link to your Verified Mobile Number UPI
+            let upiLink = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=BabuTradingOrder`;
+
+            // Standard event location trigger
             window.location.href = upiLink;
         }
 
@@ -485,7 +484,6 @@
                 totalSpan.innerText = "₹0";
                 qrImage.src = "";
                 if(payNowBtn) payNowBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now (₹0)`;
-                if(paymentBankBtn) paymentBankBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now to Bank (₹0)`;
                 return;
             }
 
@@ -513,12 +511,11 @@
 
             totalSpan.innerText = "₹" + totalPrice;
 
-            // Updates live dynamic texts and QR codes image generator string
+            // Live updates QR string linked to your mobile VPA
             const upiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=Order%20Payment`;
             qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
             
             if(payNowBtn) payNowBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now (₹${totalPrice})`;
-            if(paymentBankBtn) paymentBankBtn.innerHTML = `<i class="fas fa-wallet"></i> Pay Now to Bank (₹${totalPrice})`;
         }
 
         function checkoutToWhatsApp() {
@@ -537,7 +534,7 @@
             }
 
             const paymentOptionSelected = document.querySelector('input[name="payment-option"]:checked').value;
-            let paymentMethodString = (paymentOptionSelected === 'bank') ? "Bank Account Transfer ( Rahul Dutta )" : "UPI App / QR Code Scanner";
+            let paymentMethodString = (paymentOptionSelected === 'bank') ? "Bank Account Transfer ( Rahul Dutta )" : "UPI App Mobile Transfer (6378857627@ptyes)";
 
             let message = `📦 *NEW ORDER - BABU TRADING COMPANY*\n`;
             message += `----------------------------------\n`;
