@@ -44,32 +44,37 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="relative py-16 md:py-24 border-b border-stone-200/50 bg-cover bg-center bg-no-repeat" 
-            style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.92)), url('https://coloured-ivory-b6u3sadp.edgeone.dev/Screenshot_20260613-082520_com.facebook.katana.png');">
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <div class="flex justify-center mb-5">
-                <div class="bg-white border-2 border-amber-200 text-amber-800 p-4 rounded-full shadow-md">
+    <!-- PREMIUM CENTERED BANNER HERO SECTION -->
+    <header class="relative py-24 md:py-36 border-b border-amber-950/20 bg-cover bg-center bg-no-repeat flex items-center justify-center shadow-inner" 
+            style="background-image: linear-gradient(to bottom, rgba(28, 25, 23, 0.82), rgba(41, 37, 36, 0.88)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop');">
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center">
+            
+            <div class="mb-6 animate-bounce">
+                <div class="bg-amber-500/10 backdrop-blur-md border border-amber-400/40 text-amber-400 p-4 rounded-full shadow-xl">
                     <i class="fas fa-mortar-pestle text-4xl sm:text-5xl"></i>
                 </div>
             </div>
-            <span class="inline-flex items-center gap-1.5 text-amber-800 font-bold uppercase tracking-widest text-[10px] bg-amber-100 px-3 py-1 rounded-full border border-amber-200/60 shadow-xs">
-                <i class="fas fa-star text-amber-600 text-[9px]"></i> Premium Wholesale & Retail
+
+            <span class="inline-flex items-center gap-1.5 text-amber-300 font-bold uppercase tracking-widest text-[10px] bg-amber-400/10 backdrop-blur-xs px-4 py-1.5 rounded-full border border-amber-400/30 shadow-xs">
+                <i class="fas fa-star text-amber-400 text-[9px]"></i> Premium Authentic Wholesale Hub
             </span>
-            <h1 class="text-3xl sm:text-5xl font-black text-amber-950 mt-3 leading-tight tracking-tight">
-                Premium Dry Fruits & Spices
+            
+            <!-- Company Name Centered Elegantly -->
+            <h1 class="text-4xl sm:text-6xl font-black text-white mt-4 leading-tight tracking-tight uppercase drop-shadow-lg">
+                Babu Trading <span class="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Company</span>
             </h1>
-            <p class="mt-3 text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed font-medium">
-                Items ko cart me jodein, payment karein aur ek click me order details WhatsApp par bhejein.
+            
+            <p class="mt-4 text-sm sm:text-base text-stone-300/90 max-w-xl mx-auto leading-relaxed font-medium drop-shadow-md">
+                Premium Dry Fruits & Spices Market • Items ko cart me jodein, payment karein aur ek click me order WhatsApp par bhejein.
             </p>
 
-            <!-- SEARCH BAR -->
-            <div class="max-w-md mx-auto mt-8 px-2">
-                <div class="relative bg-white rounded-2xl shadow-md border border-stone-200 p-1 flex items-center">
+            <!-- PREMIUM SEARCH BAR -->
+            <div class="w-full max-w-md mx-auto mt-8 px-2">
+                <div class="relative bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200 p-1 flex items-center transition-all focus-within:ring-2 focus-within:ring-amber-500">
                     <div class="pl-3 text-stone-400">
                         <i class="fas fa-magnifying-glass"></i>
                     </div>
-                    <input type="text" id="search-input" onkeyup="searchItems(this.value)" placeholder="Search any item (e.g. Kaju, Elaichi, Rice)..." class="w-full text-sm bg-transparent px-3 py-2.5 focus:outline-none text-stone-800 font-medium placeholder-stone-400">
+                    <input type="text" id="search-input" onkeyup="searchItems(this.value)" placeholder="Search any item (e.g. Kaju, Elaichi, Spices)..." class="w-full text-sm bg-transparent px-3 py-2.5 focus:outline-none text-stone-800 font-semibold placeholder-stone-400">
                     <button id="search-clear-btn" onclick="clearSearch()" class="hidden pr-3 text-stone-400 hover:text-stone-600 cursor-pointer">
                         <i class="fas fa-circle-xmark"></i>
                     </button>
@@ -79,14 +84,14 @@
     </header>
 
     <!-- PRODUCTS GRID SECTION -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-[50vh]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-[50vh]">
         <div class="border-b border-stone-200 pb-4 mb-6 flex justify-between items-end">
             <h2 class="text-lg sm:text-xl font-extrabold text-amber-950 tracking-tight flex items-center gap-2">
                 <i class="fas fa-list text-amber-700 text-sm"></i> Product Catalogue
             </h2>
             <span class="text-[10px] bg-amber-950 text-amber-100 font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Rate: Per 1 KG</span>
         </div>
-        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
     </div>
 
     <!-- MODERN CART DRAWER -->
@@ -146,7 +151,7 @@
                     </div>
                 </div>
 
-                <!-- UPDATED UPI QR BOX (No Button, Clean Instructions) -->
+                <!-- UPI QR BOX (Direct Scan Info) -->
                 <div id="payment-qr-box" class="bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
                     <div class="text-xs font-bold text-amber-950 mb-2.5 flex items-center justify-center gap-1">
                         <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay to Mobile Number
@@ -155,7 +160,7 @@
                         <img id="payment-qr" src="" alt="Payment QR Code" class="w-36 h-36 mx-auto">
                     </div>
 
-                    <!-- Hindi Instructions Requested by User -->
+                    <!-- Hindi Instructions -->
                     <div class="bg-amber-950 text-amber-50 text-xs font-bold p-3 rounded-xl border border-amber-900 leading-relaxed shadow-xs">
                         कृपया QR कोड को स्कैन करो आपका ऑर्डर बुक हो जायेगा और पेमेंट करो
                     </div>
@@ -166,7 +171,7 @@
                     </div>
                 </div>
 
-                <!-- UPDATED BANK BOX (No Button, Direct Hindi Instructions) -->
+                <!-- BANK BOX (Direct Instructions) -->
                 <div id="payment-bank-box" class="hidden bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
                     <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
                         <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
@@ -176,7 +181,7 @@
                     <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">Account Number:</span> <span class="font-black text-amber-900 select-all tracking-wide">501066746547</span></div>
                     <div class="flex justify-between items-center py-0.5 border-b border-stone-100"><span class="text-stone-500">IFSC Code:</span> <span class="font-black text-amber-900 select-all">NSPB0000002</span></div>
                     
-                    <!-- Hindi Instructions for Bank Transfer Requested by User -->
+                    <!-- Hindi Instructions for Bank Transfer -->
                     <div class="bg-stone-200 text-stone-800 font-bold p-3 rounded-xl border border-stone-300 text-xs mt-3.5 leading-relaxed">
                         अकाउंट डिटेल्स अपने फोन पे gpay में डालो और पेमेंट करो आपका ऑर्डर बुक हो जायेगा
                     </div>
@@ -270,6 +275,7 @@
 
         function initProducts() { renderGrid(allProducts); }
 
+        // Render Catalogue with Dynamic Live Grid Stepper Modifier Buttons (+ / -)
         function renderGrid(productsArray) {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = '';
@@ -279,20 +285,28 @@
             }
             productsArray.forEach(p => {
                 const card = document.createElement('div');
-                card.className = "bg-white p-4 rounded-xl border border-stone-200 flex flex-col justify-between shadow-xs";
+                card.className = "bg-white p-4 rounded-xl border border-stone-200 flex flex-col justify-between shadow-xs hover:border-amber-600/60 hover:shadow-md transition-all";
                 card.innerHTML = `
                     <div>
-                        <span class="text-[9px] bg-stone-100 text-stone-600 font-bold px-2 py-0.5 rounded-md uppercase">${p.cat}</span>
-                        <h3 class="font-bold text-stone-900 text-sm sm:text-base mt-1.5">${p.name}</h3>
+                        <span class="text-[9px] bg-stone-100 text-stone-600 font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">${p.cat}</span>
+                        <h3 class="font-bold text-stone-900 text-sm sm:text-base mt-1.5 tracking-tight">${p.name}</h3>
                     </div>
                     <div class="mt-4 pt-3 border-t border-stone-100 flex flex-col gap-2">
                         <div class="text-base font-black text-amber-950">₹${p.price} <span class="text-xs font-normal text-stone-500">/ kg</span></div>
-                        <div class="flex items-center justify-between gap-1.5">
-                            <div class="flex items-center border border-stone-300 rounded-xl bg-stone-50 px-2 h-9 w-20 justify-center">
-                                <input type="number" id="qty-input-${p.id}" value="1" min="1" class="w-8 text-center font-bold text-stone-800 text-xs bg-transparent focus:outline-none">
-                                <span class="text-[10px] text-stone-500 font-bold ml-0.5">kg</span>
+                        
+                        <!-- Premium Embedded Stepper Controls Direct on Card -->
+                        <div class="flex flex-col gap-1.5 mt-1">
+                            <div class="flex items-center justify-between border border-stone-200 rounded-xl bg-stone-50 p-1">
+                                <button onclick="changeGridQty('${p.id}', -1)" class="w-8 h-8 bg-white border border-stone-200 text-stone-700 font-extrabold rounded-lg flex items-center justify-center hover:bg-stone-100 transition shadow-2xs cursor-pointer">-</button>
+                                <div class="font-black text-stone-800 text-xs flex-1 text-center select-none">
+                                    <span id="grid-qty-${p.id}">1</span> kg
+                                </div>
+                                <button onclick="changeGridQty('${p.id}', 1)" class="w-8 h-8 bg-white border border-stone-200 text-stone-700 font-extrabold rounded-lg flex items-center justify-center hover:bg-stone-100 transition shadow-2xs cursor-pointer">+</button>
                             </div>
-                            <button onclick="addProductWithQty('${p.id}', '${p.name}', ${p.price})" class="flex-1 h-9 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow-xs"> Add To Cart</button>
+                            
+                            <button onclick="addFromGrid('${p.id}', '${p.name}', ${p.price})" class="w-full h-10 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer shadow-xs">
+                                <i class="fas fa-shopping-basket text-[10px]"></i> Add To Cart
+                            </button>
                         </div>
                     </div>
                 `;
@@ -300,25 +314,42 @@
             });
         }
 
-        function addProductWithQty(id, name, price) {
-            const qtyBox = document.getElementById(`qty-input-${id}`);
-            let selectedQty = parseInt(qtyBox.value) || 1;
+        // Stepper handler for grid items
+        function changeGridQty(id, delta) {
+            const qtyElement = document.getElementById(`grid-qty-${id}`);
+            if(!qtyElement) return;
+            let currentVal = parseInt(qtyElement.innerText) || 1;
+            currentVal += delta;
+            if(currentVal < 1) currentVal = 1;
+            qtyElement.innerText = currentVal;
+        }
+
+        // Submit action using custom stepper count value
+        function addFromGrid(id, name, price) {
+            const qtyElement = document.getElementById(`grid-qty-${id}`);
+            let selectedQty = parseInt(qtyElement.innerText) || 1;
+            
             const existingItem = cart.find(item => item.id === id);
-            if (existingItem) { existingItem.quantity += selectedQty; } 
-            else { cart.push({ id, name, price, quantity: selectedQty }); }
-            qtyBox.value = 1; 
-            renderCart(); openCart();
+            if (existingItem) { 
+                existingItem.quantity += selectedQty; 
+            } else { 
+                cart.push({ id, name, price, quantity: selectedQty }); 
+            }
+            
+            qtyElement.innerText = "1"; // Reset element back to default unit
+            renderCart(); 
+            openCart();
         }
 
         function searchItems(keyword) {
             const clearBtn = document.getElementById('search-clear-btn');
             if(keyword.trim().length > 0) clearBtn.classList.remove('hidden');
             else clearBtn.classList.add('hidden');
-            const filtered = allProducts.filter(p => p.name.toLowerCase().includes(keyword.toLowerCase()));
+            const filtered = allProducts.filter(p => p.name.toLowerCase().includes(keyword.toLowerCase()) || p.cat.toLowerCase().includes(keyword.toLowerCase()));
             renderGrid(filtered);
         }
 
-        function clearSearch() { document.getElementById('search-input').value = ''; renderGrid(allProducts); }
+        function clearSearch() { document.getElementById('search-input').value = ''; document.getElementById('search-clear-btn').classList.add('hidden'); renderGrid(allProducts); }
         function openAboutUs() { document.getElementById('about-modal').classList.remove('hidden'); document.getElementById('about-overlay').classList.remove('hidden'); }
         function closeAboutUs() { document.getElementById('about-modal').classList.add('hidden'); document.getElementById('about-overlay').classList.add('hidden'); }
         function openCart() { document.getElementById('cart-sidebar').classList.remove('translate-x-full'); document.getElementById('cart-sidebar').classList.add('translate-x-0'); document.getElementById('cart-overlay').classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
@@ -387,7 +418,6 @@
             totalSpan.innerText = "₹" + totalPrice;
             if(qrAmountDisplay) qrAmountDisplay.innerText = "₹" + totalPrice;
 
-            // Dynamically updates QR string based on cart value
             const upiString = `upi://pay?pa=${MERCHANT_UPI_ID}&pn=Babu%20Trading%20Company&am=${totalPrice}&cu=INR&tn=BabuTradingOrder`;
             if(qrImage) qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
         }
