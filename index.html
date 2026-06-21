@@ -100,6 +100,13 @@
 
     <header class="relative py-24 md:py-36 border-b border-amber-950/20 bg-cover bg-center bg-no-repeat flex items-center justify-center shadow-inner" 
             style="background-image: linear-gradient(to bottom, rgba(28, 25, 23, 0.82), rgba(41, 37, 36, 0.88)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop');">
+        
+        <!-- NEW WHATSAPP BUTTON ADDED HERE -->
+        <a href="https://wa.me/916378857627?text=Hello%20Babu%20Trading%20Company,%20I%20want%20to%20order" target="_blank" class="absolute top-6 right-4 sm:top-8 sm:right-8 flex flex-col items-center bg-emerald-500/90 hover:bg-emerald-600 backdrop-blur-md text-white px-3 py-2 rounded-xl shadow-xl transition transform hover:scale-105 border border-emerald-400/50 z-30 cursor-pointer">
+            <span class="text-[10px] font-bold mb-1 tracking-wide uppercase">Order on WhatsApp</span>
+            <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i>
+        </a>
+
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center">
             
             <div class="mb-6">
@@ -164,6 +171,13 @@
 
             <div id="cart-items-list" class="space-y-3 hidden"></div>
 
+            <!-- ADD MORE PRODUCTS BUTTON IN CART -->
+            <div id="add-more-btn-container" class="hidden mt-3 mb-2">
+                <button onclick="closeCart()" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-extrabold rounded-xl text-xs transition cursor-pointer flex items-center justify-center gap-2 shadow-sm">
+                    <i class="fas fa-plus-circle"></i> Add More Products
+                </button>
+            </div>
+
             <div id="cart-summary-section" class="border-t border-stone-100 pt-4 hidden space-y-4">
                 <div class="flex justify-between items-center font-bold text-stone-900 text-base">
                     <span>Total Bill Amount:</span>
@@ -182,6 +196,12 @@
                     <div>
                         <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Poora Pata / Full Address *</label>
                         <textarea id="cust-address" rows="2" placeholder="House No, Colony, City, Pin-code" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-600 bg-white resize-none"></textarea>
+                    </div>
+                    <!-- NEW SCREENSHOT INPUT -->
+                    <div>
+                        <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Payment Screenshot *</label>
+                        <p class="text-[10px] text-stone-400 mb-1 leading-tight">Payment karne k baad screenshot yaha dale</p>
+                        <input type="file" id="payment-screenshot" accept="image/*" onchange="checkScreenshot()" class="w-full text-sm border border-stone-200 rounded-xl px-2 py-1.5 focus:outline-none focus:border-amber-600 bg-white cursor-pointer file:cursor-pointer file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200 transition">
                     </div>
                 </div>
 
@@ -233,8 +253,9 @@
         </div>
 
         <div class="p-4 border-t border-stone-200 bg-stone-50">
-            <button onclick="checkoutToWhatsApp()" class="cursor-pointer w-full inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow-md transition transform active:scale-95 gap-2">
-                <i class="fab fa-whatsapp text-lg"></i> Complete Order On WhatsApp
+            <!-- UPDATED DYNAMIC SUBMIT BUTTON -->
+            <button id="submit-order-btn" onclick="submitOrder()" class="cursor-pointer w-full inline-flex items-center justify-center bg-stone-400 text-white font-bold py-3 rounded-xl text-sm shadow-md transition gap-2">
+                Pahle payment kare or screenshot add kare
             </button>
         </div>
     </aside>
@@ -417,58 +438,38 @@
             closeSideMenu();
         }
 
-        // SWIPE LOGIC FOR MOBILE MENU
         let touchstartX = 0;
         let touchendX = 0;
         
-        document.addEventListener('touchstart', e => {
-            touchstartX = e.changedTouches[0].screenX;
-        });
-
-        document.addEventListener('touchend', e => {
-            touchendX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
+        document.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
 
         function handleSwipe() {
-            // Swipe right from the very left edge (0 to 30px) to open menu
-            if (touchendX > touchstartX + 50 && touchstartX < 30) {
-                openSideMenu();
-            }
-            // Swipe left to close menu if it's open
-            if (touchstartX > touchendX + 50 && document.getElementById('side-menu').classList.contains('translate-x-0')) {
-                closeSideMenu();
-            }
+            if (touchendX > touchstartX + 50 && touchstartX < 30) openSideMenu();
+            if (touchstartX > touchendX + 50 && document.getElementById('side-menu').classList.contains('translate-x-0')) closeSideMenu();
         }
-        /* ----------------------- */
 
         /* --- MODALS LOGIC --- */
-        // About Us
         function openAboutUs() { 
             document.getElementById('about-modal').classList.remove('hidden'); 
             document.getElementById('about-overlay').classList.remove('hidden'); 
             if (window.location.hash !== '#about') { window.history.pushState(null, null, '#about'); }
         }
-        
         function closeAboutUs() { 
             document.getElementById('about-modal').classList.add('hidden'); 
             document.getElementById('about-overlay').classList.add('hidden'); 
             if (window.location.hash === '#about') { window.history.back(); }
         }
-
-        // Track Order
         function openTrackOrder() {
             document.getElementById('track-order-modal').classList.remove('hidden'); 
             document.getElementById('track-order-overlay').classList.remove('hidden'); 
             if (window.location.hash !== '#track') { window.history.pushState(null, null, '#track'); }
         }
-
         function closeTrackOrder() {
             document.getElementById('track-order-modal').classList.add('hidden'); 
             document.getElementById('track-order-overlay').classList.add('hidden'); 
             if (window.location.hash === '#track') { window.history.back(); }
         }
-
         function searchOrder() {
             alert("Please order first only then your details will be visible here");
             closeTrackOrder();
@@ -482,7 +483,6 @@
             document.body.style.overflow = 'hidden'; 
             if (window.location.hash !== '#cart') { window.history.pushState(null, null, '#cart'); }
         }
-        
         function closeCart() { 
             document.getElementById('cart-sidebar').classList.remove('translate-x-0'); 
             document.getElementById('cart-sidebar').classList.add('translate-x-full'); 
@@ -491,7 +491,6 @@
             if (window.location.hash === '#cart') { window.history.back(); }
         }
 
-        // Mobile Back Button Management
         window.addEventListener('popstate', function(event) {
             if (window.location.hash !== '#cart') {
                 document.getElementById('cart-sidebar').classList.remove('translate-x-0');
@@ -513,7 +512,6 @@
                 document.getElementById('track-order-overlay').classList.add('hidden');
             }
         });
-        /* ------------------------------------------- */
 
         function handlePaymentToggle(type) {
             const bankBox = document.getElementById('payment-bank-box');
@@ -534,6 +532,7 @@
             const emptyDiv = document.getElementById('cart-empty');
             const listDiv = document.getElementById('cart-items-list');
             const summaryDiv = document.getElementById('cart-summary-section');
+            const addMoreBtn = document.getElementById('add-more-btn-container');
             const countBadge = document.getElementById('cart-count');
             const totalSpan = document.getElementById('cart-total-price');
             const mobileInfo = document.getElementById('mobile-cart-info');
@@ -552,14 +551,20 @@
             if(mobileInfo) mobileInfo.innerText = `${totalItems} kg Items - ₹${totalPrice}`;
 
             if (cart.length === 0) {
-                emptyDiv.classList.remove('hidden'); listDiv.classList.add('hidden'); summaryDiv.classList.add('hidden');
+                emptyDiv.classList.remove('hidden'); 
+                listDiv.classList.add('hidden'); 
+                summaryDiv.classList.add('hidden');
+                if(addMoreBtn) addMoreBtn.classList.add('hidden');
                 totalSpan.innerText = "₹0"; 
                 if(qrAmountDisplay) qrAmountDisplay.innerText = "₹0";
                 if(qrImage) qrImage.src = "";
                 return;
             }
 
-            emptyDiv.classList.add('hidden'); listDiv.classList.remove('hidden'); summaryDiv.classList.remove('hidden');
+            emptyDiv.classList.add('hidden'); 
+            listDiv.classList.remove('hidden'); 
+            summaryDiv.classList.remove('hidden');
+            if(addMoreBtn) addMoreBtn.classList.remove('hidden');
 
             cart.forEach(item => {
                 const itemRow = document.createElement('div');
@@ -586,13 +591,38 @@
             if(qrImage) qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
         }
 
-        function checkoutToWhatsApp() {
+        // SCREENSHOT & BUTTON DYNAMIC LOGIC
+        function checkScreenshot() {
+            const fileInput = document.getElementById('payment-screenshot');
+            const submitBtn = document.getElementById('submit-order-btn');
+            
+            if (fileInput.files && fileInput.files.length > 0) {
+                submitBtn.innerText = "Submit Now";
+                submitBtn.className = "cursor-pointer w-full inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm shadow-md transition transform active:scale-95 gap-2";
+            } else {
+                submitBtn.innerText = "Pahle payment kare or screenshot add kare";
+                submitBtn.className = "cursor-pointer w-full inline-flex items-center justify-center bg-stone-400 text-white font-bold py-3 rounded-xl text-sm shadow-md transition gap-2";
+            }
+        }
+
+        // FINAL SUBMIT LOGIC
+        function submitOrder() {
+            const fileInput = document.getElementById('payment-screenshot');
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert("Pahle payment kare or screenshot add kare");
+                return;
+            }
+
             if (cart.length === 0) { alert("Aapka cart khali hai!"); return; }
             const name = document.getElementById('cust-name').value.trim();
             const phone = document.getElementById('cust-phone').value.trim();
             const address = document.getElementById('cust-address').value.trim();
 
             if (!name || !phone || !address) { alert("Kripya apni delivery details poori bharein!"); return; }
+
+            // Success Alert
+            alert("Your details submit successfully");
 
             let message = `📦 *NEW ORDER - BABU TRADING COMPANY*\n`;
             message += `👤 *Name:* ${name}\n📞 *Mobile:* ${phone}\n📍 *Address:* ${address}\n`;
@@ -603,6 +633,8 @@
                 message += `${index + 1}. ${item.name} (${item.quantity} kg) - ₹${item.price * item.quantity}\n`;
             });
             message += `💰 *TOTAL AMOUNT:* *₹${overallTotal}*\n`;
+            message += `✅ *Note:* Customer ne payment screenshot website par add kar diya hai.\n\n`;
+            message += `(_Kripya chat me image/screenshot attach kare_)`;
 
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
