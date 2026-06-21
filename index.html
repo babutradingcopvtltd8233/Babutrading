@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wholesale Business - BABU TRADING CO. Bengaluru</title>
-    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,14 +13,12 @@
 </head>
 <body class="bg-stone-50/50 text-stone-800 antialiased" onload="initProducts()">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 text-amber-100/90 text-center py-2 px-4 text-xs font-medium tracking-wide flex flex-wrap justify-center gap-x-6 gap-y-1 shadow-md border-b border-amber-800/30">
         <span class="flex items-center gap-1.5"><i class="fas fa-truck text-amber-400 text-xs"></i> Fast Pan-India Delivery</span>
         <span class="hidden sm:inline text-amber-800/60">|</span>
         <span class="flex items-center gap-1.5"><i class="fas fa-shield-halved text-amber-400 text-xs"></i> 100% Pure & Fresh Quality</span>
     </div>
 
-    <!-- PREMIUM NAVIGATION -->
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200/60 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -44,7 +41,6 @@
         </div>
     </nav>
 
-    <!-- PREMIUM CENTERED BANNER HERO SECTION -->
     <header class="relative py-24 md:py-36 border-b border-amber-950/20 bg-cover bg-center bg-no-repeat flex items-center justify-center shadow-inner" 
             style="background-image: linear-gradient(to bottom, rgba(28, 25, 23, 0.82), rgba(41, 37, 36, 0.88)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop');">
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center">
@@ -67,7 +63,6 @@
                 Premium Dry Fruits & Spices Market • Items ko cart me jodein, payment karein aur ek click me order WhatsApp par bhejein.
             </p>
 
-            <!-- PREMIUM SEARCH BAR -->
             <div class="w-full max-w-md mx-auto mt-8 px-2">
                 <div class="relative bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200 p-1 flex items-center transition-all focus-within:ring-2 focus-within:ring-amber-500">
                     <div class="pl-3 text-stone-400">
@@ -82,7 +77,6 @@
         </div>
     </header>
 
-    <!-- PRODUCTS GRID SECTION -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-[50vh]">
         <div class="border-b border-stone-200 pb-4 mb-6 flex justify-between items-end">
             <h2 class="text-lg sm:text-xl font-extrabold text-amber-950 tracking-tight flex items-center gap-2">
@@ -93,7 +87,6 @@
         <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"></div>
     </div>
 
-    <!-- MODERN CART DRAWER -->
     <div id="cart-overlay" onclick="closeCart()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
 
     <aside id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-55 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
@@ -112,7 +105,6 @@
                 <p class="font-medium">Aapka cart abhi khali hai.<br>Kripya products add karein!</p>
             </div>
 
-            <!-- Complete List Container for items -->
             <div id="cart-items-list" class="space-y-3 hidden"></div>
 
             <div id="cart-summary-section" class="border-t border-stone-100 pt-4 hidden space-y-4">
@@ -136,7 +128,6 @@
                     </div>
                 </div>
 
-                <!-- PAYMENT METHOD SELECTOR -->
                 <div class="space-y-2">
                     <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide">Choose Payment Method / पेमेंट ऑप्शन चुनें *</label>
                     <div class="grid grid-cols-2 gap-2">
@@ -151,7 +142,6 @@
                     </div>
                 </div>
 
-                <!-- UPI QR BOX -->
                 <div id="payment-qr-box" class="bg-amber-50/70 rounded-2xl border border-amber-100 p-4 text-center">
                     <div class="text-xs font-bold text-amber-950 mb-2.5 flex items-center justify-center gap-1">
                         <i class="fas fa-qrcode text-amber-700"></i> Scan & Pay using PhonePe/GPay
@@ -160,7 +150,6 @@
                         <img id="payment-qr" src="" alt="Payment QR Code" class="w-36 h-36 mx-auto object-contain">
                     </div>
 
-                    <!-- Instructions -->
                     <div class="bg-amber-950 text-amber-50 text-xs font-bold p-3 rounded-xl border border-amber-900 leading-relaxed shadow-xs">
                         कृपया QR कोड को स्कैन करो आपका ORDER बुक हो जायेगा और पेमेंट करो
                     </div>
@@ -170,7 +159,6 @@
                     </div>
                 </div>
 
-                <!-- BANK BOX -->
                 <div id="payment-bank-box" class="hidden bg-stone-50 rounded-2xl border border-stone-200 p-3.5 space-y-2 text-xs">
                     <div class="text-[11px] font-black text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1">
                         <i class="fas fa-university text-amber-700"></i> Transfer to Bank Account
@@ -194,7 +182,6 @@
         </div>
     </aside>
 
-    <!-- ABOUT US MODAL -->
     <div id="about-overlay" onclick="closeAboutUs()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
     <div id="about-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-55 max-w-sm w-full p-6 hidden border border-stone-200 transition-all">
         <div class="flex justify-between items-center border-b border-stone-100 pb-3 mb-4">
@@ -224,7 +211,6 @@
         </div>
     </div>
 
-    <!-- MOBILE FIXED BOTTOM BAR -->
     <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 p-4 flex justify-between items-center z-40 shadow-xl">
         <div>
             <div class="text-[10px] text-stone-400 font-bold uppercase">Total Items</div>
@@ -240,11 +226,9 @@
         <p>&copy; 2026 Babu Trading Company. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Har ek 22 item ke liye specific aur clear images mapped hain
         const allProducts = [
-            { id: "kaju-mix", name: "Kaju Mix", price: 610, cat: "Dry Fruits", img: "https://images.unsplash.com/photo-1626078353756-07019f687425?q=80&w=500" },
+            { id: "kaju-mix", name: "Kaju Mix", price: 610, cat: "Dry Fruits", img: "https://i.postimg.cc/SRyChvHy/IMG-20260621-WA0011.jpg" },
             { id: "kaju-w240", name: "Kaju W240", price: 670, cat: "Dry Fruits", img: "https://images.unsplash.com/photo-1599599810769-8bf551732e70?q=80&w=500" },
             { id: "kaju-w320", name: "Kaju W320", price: 630, cat: "Dry Fruits", img: "https://images.unsplash.com/photo-1600189083133-ef7285ff08cc?q=80&w=500" },
             { id: "kaju-jh", name: "Kaju JH", price: 600, cat: "Dry Fruits", img: "https://images.unsplash.com/photo-1596513320253-1579822a106d?q=80&w=500" },
