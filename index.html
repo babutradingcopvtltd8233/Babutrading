@@ -101,7 +101,6 @@
     <header class="relative py-24 md:py-36 border-b border-amber-950/20 bg-cover bg-center bg-no-repeat flex items-center justify-center shadow-inner" 
             style="background-image: linear-gradient(to bottom, rgba(28, 25, 23, 0.82), rgba(41, 37, 36, 0.88)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop');">
         
-        <!-- NEW WHATSAPP BUTTON ADDED HERE -->
         <a href="https://wa.me/916378857627?text=Hello%20Babu%20Trading%20Company,%20I%20want%20to%20order" target="_blank" class="absolute top-6 right-4 sm:top-8 sm:right-8 flex flex-col items-center bg-emerald-500/90 hover:bg-emerald-600 backdrop-blur-md text-white px-3 py-2 rounded-xl shadow-xl transition transform hover:scale-105 border border-emerald-400/50 z-30 cursor-pointer">
             <span class="text-[10px] font-bold mb-1 tracking-wide uppercase">Order on WhatsApp</span>
             <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i>
@@ -171,7 +170,6 @@
 
             <div id="cart-items-list" class="space-y-3 hidden"></div>
 
-            <!-- ADD MORE PRODUCTS BUTTON IN CART -->
             <div id="add-more-btn-container" class="hidden mt-3 mb-2">
                 <button onclick="closeCart()" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-extrabold rounded-xl text-xs transition cursor-pointer flex items-center justify-center gap-2 shadow-sm">
                     <i class="fas fa-plus-circle"></i> Add More Products
@@ -197,7 +195,6 @@
                         <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Poora Pata / Full Address *</label>
                         <textarea id="cust-address" rows="2" placeholder="House No, Colony, City, Pin-code" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-600 bg-white resize-none"></textarea>
                     </div>
-                    <!-- NEW SCREENSHOT INPUT -->
                     <div>
                         <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-wide mb-1">Payment Screenshot *</label>
                         <p class="text-[10px] text-stone-400 mb-1 leading-tight">Payment karne k baad screenshot yaha dale</p>
@@ -253,7 +250,6 @@
         </div>
 
         <div class="p-4 border-t border-stone-200 bg-stone-50">
-            <!-- UPDATED DYNAMIC SUBMIT BUTTON -->
             <button id="submit-order-btn" onclick="submitOrder()" class="cursor-pointer w-full inline-flex items-center justify-center bg-stone-400 text-white font-bold py-3 rounded-xl text-sm shadow-md transition gap-2">
                 Pahle payment kare or screenshot add kare
             </button>
@@ -306,6 +302,7 @@
 
     <script>
         const allProducts = [
+            // Old Products
             { id: "kaju-mix", name: "Kaju Mix", price: 610, cat: "Dry Fruits", img: "https://i.postimg.cc/SRyChvHy/IMG-20260621-WA0011.jpg" },
             { id: "kaju-w240", name: "Kaju W240", price: 670, cat: "Dry Fruits", img: "https://i.postimg.cc/tgZL3rSP/IMG-20260621-WA0001.jpg" },
             { id: "kaju-w320", name: "Kaju W320", price: 630, cat: "Dry Fruits", img: "https://i.postimg.cc/0jcWRmW3/IMG-20260621-WA0002.jpg" },
@@ -326,7 +323,38 @@
             { id: "jeera", name: "Jeera", price: 150, cat: "Spices / Masale", img: "https://i.postimg.cc/5tyz9r94/IMG-20260621-WA0040.jpg" },
             { id: "cloves", name: "Cloves Long (Laung)", price: 630, cat: "Spices / Masale", img: "https://i.postimg.cc/k4ttKttQ/IMG-20260621-WA0010.jpg" },
             { id: "rice-sella", name: "Basmati Golden Sella Rice", price: 60, cat: "Rices & Others", img: "https://i.postimg.cc/1XGnYhBr/IMG-20260621-WA0006.jpg" },
-            { id: "rice-chabi", name: "Double Chabi Rice", price: 65, cat: "Rices & Others", img: "https://img.postimg.cc/gk4rwKTP/IMG-20260621-WA0044.jpg" }
+            { id: "rice-chabi", name: "Double Chabi Rice", price: 65, cat: "Rices & Others", img: "https://img.postimg.cc/gk4rwKTP/IMG-20260621-WA0044.jpg" },
+
+            // Newly Added Products Below
+            { id: "dry-kiwi", name: "Dry Kiwi", price: 520, cat: "Dry Fruits", img: "https://i.postimg.cc/dQW7r2s3/image-search-1763121474024.jpg" },
+            { id: "apricot", name: "Apricot", price: 300, cat: "Dry Fruits", img: "https://i.postimg.cc/NGPM5Qbq/image-search-1781748952060.jpg" },
+            { id: "peanut", name: "Peanut", price: 80, cat: "Dry Fruits", img: "https://i.postimg.cc/grFb8tn0/image-search-1766853891480.jpg" },
+            { id: "almonds-kashmiri", name: "Almonds Kashmiri", price: 700, cat: "Dry Fruits", img: "https://i.postimg.cc/8CK5MDDk/image-search-1763121163249.jpg" },
+            { id: "elaichi-6mm", name: "Hari Elaichi 6MM", price: 2150, cat: "Spices / Masale", img: "https://i.postimg.cc/pV8WXK9b/image-search-1763120606087.jpg" },
+            { id: "elaichi-5mm", name: "Hari Elaichi 5MM", price: 1930, cat: "Spices / Masale", img: "https://i.postimg.cc/pV8WXK9b/image-search-1763120606087.jpg" },
+            { id: "kashmiri-lal-mirch", name: "Kashmiri Lal Mirch", price: 170, cat: "Spices / Masale", img: "https://i.postimg.cc/dt4zq09s/image-search-1763121530442.png" },
+            { id: "tej-patta", name: "Tej Patta", price: 110, cat: "Spices / Masale", img: "https://i.postimg.cc/Y08yqXQk/image-search-1763219075348.jpg" },
+            { id: "haldi-pc", name: "Haldi PC", price: 90, cat: "Spices / Masale", img: "https://i.postimg.cc/02QV00p2/image-search-1782061257575.jpg" },
+            { id: "javitri", name: "Javitri", price: 700, cat: "Spices / Masale", img: "https://i.postimg.cc/bvQgwCj9/image-search-1763121082711.jpg" },
+            { id: "dhaniya", name: "Dhaniya", price: 140, cat: "Spices / Masale", img: "https://i.postimg.cc/fyFmKmNZ/image-search-1782061423745.jpg" },
+            { id: "jaiphal", name: "Jaiphal", price: 530, cat: "Spices / Masale", img: "https://i.postimg.cc/Hsqb8wzz/image-search-1763121108899.jpg" },
+            { id: "staranise", name: "Staranise", price: 650, cat: "Spices / Masale", img: "https://i.postimg.cc/fy6SXscV/image-search-1765624802173.jpg" },
+            { id: "black-kishmish", name: "Black Kishmish", price: 400, cat: "Dry Fruits", img: "https://i.postimg.cc/N0f8Qgbz/image-search-1782061593159.jpg" },
+            { id: "dalchini-sticks", name: "Dalchini Sticks", price: 590, cat: "Spices / Masale", img: "https://i.postimg.cc/mr59R7Py/image-search-1782061701774.jpg" },
+            { id: "badi-ilayachi-kali", name: "Badi Ilayachi Kali", price: 1100, cat: "Spices / Masale", img: "https://i.postimg.cc/d0L7WD5d/image-search-1770050194621.jpg" },
+            { id: "teja-chilli-powder", name: "Teja Chilli Powder (Full Spicy)", price: 100, cat: "Spices / Masale", img: "https://i.postimg.cc/hGzjL6GT/image-search-1769781954618.jpg" },
+            { id: "turmeric", name: "Turmeric", price: 100, cat: "Spices / Masale", img: "https://i.postimg.cc/4xnNGqps/image-search-1763219122801.jpg" },
+            { id: "gatta-turmeric", name: "Gatta Turmeric", price: 80, cat: "Spices / Masale", img: "https://i.postimg.cc/GpGRhC2Y/image-search-1782062001660.jpg" },
+            { id: "soof", name: "Soof (Saunf)", price: 140, cat: "Spices / Masale", img: "https://i.postimg.cc/Hk7DBgQ8/image-search-1782062093145.jpg" },
+            { id: "chana-daal", name: "Chana Daal", price: 68, cat: "Dals & Pulses", img: "https://i.postimg.cc/HWSqmxzV/image-search-1763219946044.jpg" },
+            { id: "masoor-dal", name: "Masoor Dal", price: 70, cat: "Dals & Pulses", img: "https://i.postimg.cc/nrMwr4ky/image-search-1763219918155.jpg" },
+            { id: "toor-dal", name: "Toor Dal", price: 80, cat: "Dals & Pulses", img: "https://i.postimg.cc/Nf3PGrHF/image-search-1763219959980.jpg" },
+            { id: "moong-dal", name: "Moong Dal", price: 70, cat: "Dals & Pulses", img: "https://i.postimg.cc/52WnWdhQ/image-search-1763219898956.jpg" },
+            { id: "urad-dal", name: "Urad Dal", price: 68, cat: "Dals & Pulses", img: "https://i.postimg.cc/x8byBtgt/image-search-1763219981413.jpg" },
+            { id: "normal-rice", name: "Normal Rice", price: 40, cat: "Rices & Others", img: "https://i.postimg.cc/k4LhVVpV/image-search-1782062508731.jpg" },
+            { id: "coconut", name: "Coconut", price: 180, cat: "Dry Fruits", img: "https://i.postimg.cc/MptP73Ln/image-search-1763121360789.png" },
+            { id: "chaina-garlic", name: "China Garlic", price: 70, cat: "Spices / Masale", img: "https://i.postimg.cc/5ycn4hXz/image-search-1764842987532.jpg" },
+            { id: "indian-garlic", name: "Indian Garlic", price: 65, cat: "Spices / Masale", img: "https://i.postimg.cc/fbJKxzX3/image-search-1764842997119.webp" }
         ];
 
         let cart = [];
@@ -418,7 +446,6 @@
             renderGrid(allProducts); 
         }
 
-        /* --- SIDE MENU LOGIC --- */
         function openSideMenu() {
             document.getElementById('side-menu').classList.remove('-translate-x-full');
             document.getElementById('side-menu').classList.add('translate-x-0');
@@ -438,9 +465,7 @@
             closeSideMenu();
         }
 
-        let touchstartX = 0;
-        let touchendX = 0;
-        
+        let touchstartX = 0; let touchendX = 0;
         document.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
         document.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
 
@@ -449,7 +474,6 @@
             if (touchstartX > touchendX + 50 && document.getElementById('side-menu').classList.contains('translate-x-0')) closeSideMenu();
         }
 
-        /* --- MODALS LOGIC --- */
         function openAboutUs() { 
             document.getElementById('about-modal').classList.remove('hidden'); 
             document.getElementById('about-overlay').classList.remove('hidden'); 
@@ -475,7 +499,6 @@
             closeTrackOrder();
         }
         
-        // Cart
         function openCart() { 
             document.getElementById('cart-sidebar').classList.remove('translate-x-full'); 
             document.getElementById('cart-sidebar').classList.add('translate-x-0'); 
@@ -591,7 +614,6 @@
             if(qrImage) qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
         }
 
-        // SCREENSHOT & BUTTON DYNAMIC LOGIC
         function checkScreenshot() {
             const fileInput = document.getElementById('payment-screenshot');
             const submitBtn = document.getElementById('submit-order-btn');
@@ -605,7 +627,6 @@
             }
         }
 
-        // FINAL SUBMIT LOGIC
         function submitOrder() {
             const fileInput = document.getElementById('payment-screenshot');
             
@@ -621,7 +642,6 @@
 
             if (!name || !phone || !address) { alert("Kripya apni delivery details poori bharein!"); return; }
 
-            // Success Alert
             alert("Your details submit successfully");
 
             let message = `📦 *NEW ORDER - BABU TRADING COMPANY*\n`;
