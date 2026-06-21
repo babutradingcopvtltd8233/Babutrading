@@ -22,7 +22,6 @@
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200/60 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <!-- Added 3-dot menu icon here -->
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <button onclick="openSideMenu()" class="cursor-pointer text-stone-600 hover:text-amber-950 text-xl px-2 transition">
                         <i class="fas fa-ellipsis-v"></i>
@@ -32,7 +31,6 @@
                     </span>
                 </div>
                 <div class="flex items-center gap-4 relative">
-                    <!-- About us removed from here as per request -->
                     <button onclick="openCart()" class="cursor-pointer inline-flex items-center bg-amber-950 hover:bg-amber-900 text-white font-bold px-5 py-2.5 rounded-xl text-sm shadow-md transition-all gap-2">
                         <i class="fas fa-shopping-basket text-lg text-amber-400"></i> 
                         <span class="hidden sm:inline">My Cart</span>
@@ -43,7 +41,6 @@
         </div>
     </nav>
 
-    <!-- LEFT SIDE MENU HTML -->
     <div id="side-menu-overlay" onclick="closeSideMenu()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
     <aside id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-white z-55 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-4 border-b border-stone-200 flex justify-between items-center bg-stone-50">
@@ -58,7 +55,7 @@
             <a href="javascript:void(0)" onclick="openAboutUs(); closeSideMenu();" class="block p-3 font-bold text-stone-700 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition border border-transparent hover:border-amber-200">
                 1. About us
             </a>
-            <a href="javascript:void(0)" onclick="showAlertAndClose('Please order first only then your details will be visible here')" class="block p-3 font-bold text-stone-700 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition border border-transparent hover:border-amber-200">
+            <a href="javascript:void(0)" onclick="openTrackOrder(); closeSideMenu();" class="block p-3 font-bold text-stone-700 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition border border-transparent hover:border-amber-200">
                 2. Track order
             </a>
             <a href="javascript:void(0)" onclick="showAlertAndClose('29AQBPN5049B2ZY')" class="block p-3 font-bold text-stone-700 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition border border-transparent hover:border-amber-200">
@@ -75,6 +72,31 @@
             Babu Trading Company
         </div>
     </aside>
+
+    <div id="track-order-overlay" onclick="closeTrackOrder()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity duration-300"></div>
+    <div id="track-order-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-55 max-w-sm w-full p-6 hidden border border-stone-200 transition-all">
+        <div class="flex justify-between items-center border-b border-stone-100 pb-3 mb-4">
+            <h3 class="font-extrabold text-amber-950 text-base sm:text-lg flex items-center gap-2">
+                <i class="fas fa-truck-fast text-amber-600"></i> Track Your Order
+            </h3>
+            <button onclick="closeTrackOrder()" class="w-7 h-7 flex items-center justify-center bg-stone-100 text-stone-500 rounded-full hover:bg-stone-200 cursor-pointer transition">
+                <i class="fas fa-times text-xs"></i>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Enter order id</label>
+                <input type="text" placeholder="e.g. ORD-12345" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-amber-600 bg-stone-50 text-stone-800">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Enter e-way bill number</label>
+                <input type="text" placeholder="e.g. 123456789012" class="w-full text-sm border border-stone-200 rounded-xl px-3 py-2.5 focus:outline-none focus:border-amber-600 bg-stone-50 text-stone-800">
+            </div>
+            <button onclick="searchOrder()" class="w-full inline-flex items-center justify-center bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl text-sm shadow-md transition transform active:scale-95 gap-2 mt-2 cursor-pointer">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    </div>
 
     <header class="relative py-24 md:py-36 border-b border-amber-950/20 bg-cover bg-center bg-no-repeat flex items-center justify-center shadow-inner" 
             style="background-image: linear-gradient(to bottom, rgba(28, 25, 23, 0.82), rgba(41, 37, 36, 0.88)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop');">
@@ -420,7 +442,8 @@
         }
         /* ----------------------- */
 
-        /* --- MOBILE BACK BUTTON FIX (HISTORY API) --- */
+        /* --- MODALS LOGIC --- */
+        // About Us
         function openAboutUs() { 
             document.getElementById('about-modal').classList.remove('hidden'); 
             document.getElementById('about-overlay').classList.remove('hidden'); 
@@ -432,7 +455,26 @@
             document.getElementById('about-overlay').classList.add('hidden'); 
             if (window.location.hash === '#about') { window.history.back(); }
         }
+
+        // Track Order
+        function openTrackOrder() {
+            document.getElementById('track-order-modal').classList.remove('hidden'); 
+            document.getElementById('track-order-overlay').classList.remove('hidden'); 
+            if (window.location.hash !== '#track') { window.history.pushState(null, null, '#track'); }
+        }
+
+        function closeTrackOrder() {
+            document.getElementById('track-order-modal').classList.add('hidden'); 
+            document.getElementById('track-order-overlay').classList.add('hidden'); 
+            if (window.location.hash === '#track') { window.history.back(); }
+        }
+
+        function searchOrder() {
+            alert("Please order first only then your details will be visible here");
+            closeTrackOrder();
+        }
         
+        // Cart
         function openCart() { 
             document.getElementById('cart-sidebar').classList.remove('translate-x-full'); 
             document.getElementById('cart-sidebar').classList.add('translate-x-0'); 
@@ -449,24 +491,26 @@
             if (window.location.hash === '#cart') { window.history.back(); }
         }
 
+        // Mobile Back Button Management
         window.addEventListener('popstate', function(event) {
-            // Close Cart if open
             if (window.location.hash !== '#cart') {
                 document.getElementById('cart-sidebar').classList.remove('translate-x-0');
                 document.getElementById('cart-sidebar').classList.add('translate-x-full');
                 document.getElementById('cart-overlay').classList.add('hidden');
                 document.body.style.overflow = '';
             }
-            // Close About Us Modal if open
             if (window.location.hash !== '#about') {
                 document.getElementById('about-modal').classList.add('hidden');
                 document.getElementById('about-overlay').classList.add('hidden');
             }
-            // Close Side Menu if open
             if (window.location.hash !== '#menu') {
                 document.getElementById('side-menu').classList.remove('translate-x-0');
                 document.getElementById('side-menu').classList.add('-translate-x-full');
                 document.getElementById('side-menu-overlay').classList.add('hidden');
+            }
+            if (window.location.hash !== '#track') {
+                document.getElementById('track-order-modal').classList.add('hidden');
+                document.getElementById('track-order-overlay').classList.add('hidden');
             }
         });
         /* ------------------------------------------- */
